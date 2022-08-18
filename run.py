@@ -33,6 +33,8 @@ def hist_data():
          df = pd.DataFrame(stored_info.get_all_records())
          user_record = df.loc[df['Customer'] == cust_name].to_string(index=False)
          print(f"{Fore.LIGHTRED_EX }{Style.BRIGHT}\n{user_record}\n")
+    else:
+         print(Fore.LIGHTYELLOW_EX + "No Data Found to match this customer name")
 
     while True:
         print("What would you like to do now?")
