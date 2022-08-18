@@ -6,6 +6,7 @@ from colorama import Fore, Style
 colorama.init(autoreset=True)
 import gspread 
 from google.oauth2.service_account import Credentials
+import pandas as pd
 
 
 SCOPE = [
@@ -18,6 +19,45 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Sales_Program')
+stored_info = SHEET.worksheet('database')
+
+def hist_data():
+    """
+    Allows user to view saved details
+    """
+    cust_name = input("Enter your customer name here:\n")
+
+    if stored_info.find(cust_name, in_column=1):
+         print(Fore.LIGHTCYAN_EX + Style.BRIGHT +
+              "\nThe details you currently have saved are:\n")
+         df = pd.DataFrame(stored_info.get_all_records())
+         user_record = df.loc[df['Customer'] == cust_name].to_string(index=False)
+         print(f"{Fore.LIGHTRED_EX }{Style.BRIGHT}\n{user_record}\n")
+
+    while True:
+        print("What would you like to do now?")
+        print("Type 'a' to check another customer.")
+        print("Type 'b' to return to the main menu.")
+        print("Type 'c' to exit the renewal calculator")
+
+        selection = input("Enter your selection here:\n")
+        selection = selection.lower()
+
+        if selection == "a":
+            hist_data()
+        elif selection == "b":
+            first_page()
+        elif selection == "c":
+            print(f"{Fore.LIGHTMAGENTA_EX}{Style.BRIGHT}\
+        \nThank you for using the calculator and goodbye.")
+        break
+
+    else:
+        print(Fore.LIGHTYELLOW_EX +
+        "\nYou do not currently have any details stored.")
+        print(Fore.LIGHTYELLOW_EX + "Returning to the main menu...")
+        first_page()
+
 
 def first_page():
     """
@@ -38,8 +78,8 @@ def first_page():
 
     print("This program lets you to enter last years")
     print("renewal cost and get this years uplifted price.")
-    print("Along with multi-year pricing.\n")
-    print("You can also save and retrieve customer pricing details")
+    print("It also calculates multi-year pricing.")
+    print("You can save and retrieve customer pricing details as well\n")
 
     while True:
         print(Fore.CYAN + Style.BRIGHT + "Enter 1 if you want to start a new\
