@@ -21,6 +21,22 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Sales_Program')
 stored_info = SHEET.worksheet('database')
 
+
+def toad_pricing():
+    """function to uplift the price"""
+    level = str(input("Standard,Mid,Premiere: "))
+
+    if level == "Standard":
+        toad_stan()
+    elif level == "Mid":
+        toad_mid()
+    elif level == "Premiere":
+        toad_prem()
+    else:
+        print(f"{level} is not a valid input try again")
+        toad_pricing()
+
+
 def new_customer():
     print(Fore.CYAN + Style.BRIGHT + "To get started, please enter your\
     \ncustomer name.")
