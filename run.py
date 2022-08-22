@@ -30,6 +30,46 @@ data_standard_kace = float(price.acell('D3').value)
 data_mid_kace = float(price.acell('D4').value)
 data_prem_kace = float(price.acell('D5').value)
 
+
+def kace_stan():
+    """Function to price standard Kace Quotes"""
+    while True: 
+        if quote < data_standard_kace:
+            global cost
+            cost = quote * 1.04
+            print(Fore.CYAN + Style.BRIGHT + f"Your uplifted price is {cost}")
+        elif quote >= data_standard_kace:
+            print(Fore.RED + Style.BRIGHT + f"Your quote has reached the list price")
+            print(Fore.RED + Style.BRIGHT + f"of {data_standard_kace} no uplift needed.")
+            print(Fore.RED + Style.BRIGHT + "Directing back to Home page")
+            first_page()
+            break
+            
+
+            print("Would you like pricing for the second and third year? type Y/N")
+            multi_year = input("Y/N:\n")
+            global second_year
+            second_year = cost /100 * 90 
+            global third_year
+            third_year = cost /100 * 85
+
+            if multi_year == "Y":
+                print(Fore.CYAN + Style.BRIGHT + f"Second year price\
+                \n{second_year}")
+                print(Fore.CYAN + Style.BRIGHT + f"Third year price\
+                \n{third_year}")
+                save_details()
+                break
+            elif multi_year == "N":
+                print(Fore.CYAN + Style.BRIGHT + "Directing to save page")
+                save_details()
+                break
+
+        else: 
+            print("invalid input")
+            break
+
+
 def kace_mid():
     """Function to price mid Toad Quotes"""
     if quote < data_mid_kace:
