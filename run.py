@@ -21,6 +21,43 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Sales_Program')
 stored_info = SHEET.worksheet('database')
 
+def new_customer():
+    print(Fore.CYAN + Style.BRIGHT + "To get started, please enter your\
+    \ncustomer name.")
+    print(Fore.CYAN + Style.BRIGHT + "Names must be between 2 and 15\
+    \ncharacters,")
+    print(Fore.CYAN + Style.BRIGHT + "and should contain only letters from a\
+    \nto z.")
+    
+    global cust_name
+    cust_name = input("Enter your customer name here:\n")
+
+    if cust_name.isalpha() and len(cust_name) > 1 and len(cust_name) < 16:
+        print("Customer name accepted")
+    else:
+        print(Fore.LIGHTYELLOW_EX + "The name you have entered is not valid,please try again.")
+        new_customer()
+
+    print(Fore.CYAN + Style.BRIGHT +
+    "Please enter Toad if your Quote is for a Toad product.")
+    print(Fore.CYAN + Style.BRIGHT +
+    "Please enter Kace if your Quote is for a Kace Product.\n")
+    
+    global type
+    type = input("Please enter your choice here:\n")
+
+    print(Fore.CYAN + Style.BRIGHT + "Please enter the cost of last years renewal quote.")
+    global quote
+    quote = float(input("Amount:\n"))
+
+    if type == "Toad":
+        toad_pricing()   
+    elif type == "Kace":
+        kace_pricing()     
+    else:
+        print(Fore.LIGHTYELLOW_EX + "Invalid input, please try again.\n")
+
+
 def hist_data():
     """
     Allows user to view saved details
