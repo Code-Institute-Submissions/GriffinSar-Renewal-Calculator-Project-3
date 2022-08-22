@@ -31,6 +31,42 @@ data_mid_kace = float(price.acell('D4').value)
 data_prem_kace = float(price.acell('D5').value)
 
 
+def save_details():
+    """
+    Allow the user to save the details,
+    to the database for later.
+    """
+
+    while True:
+        print(Fore.LIGHTRED_EX + Style.BRIGHT +
+              "Would you like to save these details?\n")
+        print("Type 's' to save these details for future use.")
+        print("Type 'x' to return to the main menu.")
+        print("Type 'z' to exit calculator")
+
+        save = input("Enter your selection here:\n")
+        save = save.lower()
+        if save == "s":
+            list_details = [
+                cust_name, type, cost, second_year, third_year
+            ]
+            print("Saving your details...\n")
+            database = SHEET.worksheet('database')
+            database.append_row(list_details)
+            print(Fore.CYAN + Style.BRIGHT + "Your details have been saved to the database.\n")
+            print("\nTaking you to the main page...")
+            first_page()
+            break
+        elif save == "x":
+            first_page()
+            break
+        elif save == "z":
+            print("Thanks for using the calculator, goodbye!")
+            break
+        else:
+            print(Fore.LIGHTYELLOW_EX + "Invalid input, please try again.\n")
+
+
 def kace_stan():
     """Function to price standard Kace Quotes"""
     while True: 
