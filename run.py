@@ -22,6 +22,36 @@ SHEET = GSPREAD_CLIENT.open('Sales_Program')
 stored_info = SHEET.worksheet('database')
 
 
+def toad_prem():
+    """Function to price premiere Toad Quotes"""
+
+    if quote < data_prem_toad:
+        global cost
+        cost = quote * 1.07
+        print(Fore.CYAN + Style.BRIGHT + f"Your uplifted price is {cost}")
+    elif quote >= data_prem_toad:
+        print(Fore.CYAN + Style.BRIGHT + f"Your quote has reached the list \
+        price of {data_prem_toad} no uplift needed.")
+
+    print("Would you like pricing for the second and third year? type Y/N")
+    multi_year = input("Y/N:\n")
+    global second_year
+    second_year = cost /100 * 90 
+    global third_year
+    third_year = cost /100 * 85
+
+    if multi_year == "Y":
+            print(Fore.CYAN + Style.BRIGHT + f"Second year price {second_year}.")
+            print(Fore.CYAN + Style.BRIGHT + f"Third year price {third_year}.")
+            save_details()
+    elif multi_year == "N":
+            print(Fore.CYAN + Style.BRIGHT + "Directing to save page")
+            save_details()
+
+    else: 
+        print("invalid input")
+
+
 def kace_pricing():
     """function to uplift the price"""
     level = str(input("Standard,Mid,Premiere:\n"))
@@ -35,7 +65,6 @@ def kace_pricing():
     else:
         print(f"{level} is not a valid input try again")
         kace_pricing()
-
 
 
 def toad_pricing():
