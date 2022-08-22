@@ -22,6 +22,22 @@ SHEET = GSPREAD_CLIENT.open('Sales_Program')
 stored_info = SHEET.worksheet('database')
 
 
+def kace_pricing():
+    """function to uplift the price"""
+    level = str(input("Standard,Mid,Premiere:\n"))
+
+    if level == "Standard":
+        kace_stan()
+    elif level == "Mid":
+        kace_mid()
+    elif level == "Premiere":
+        kace_prem()
+    else:
+        print(f"{level} is not a valid input try again")
+        kace_pricing()
+
+
+
 def toad_pricing():
     """function to uplift the price"""
     level = str(input("Standard,Mid,Premiere: "))
