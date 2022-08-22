@@ -22,6 +22,40 @@ SHEET = GSPREAD_CLIENT.open('Sales_Program')
 stored_info = SHEET.worksheet('database')
 
 
+def toad_stan():
+    """Function to price standard Toad Quotes"""
+
+    while True: 
+        if quote < data_standard_toad:
+            global cost
+            cost = quote * 1.04
+            print(Fore.CYAN + Style.BRIGHT + f"Your uplifted price is {cost}")
+        elif quote >= data_standard_toad:
+            print(Fore.RED + Style.BRIGHT + f"Your quote has reached the list price")
+            print(Fore.RED + Style.BRIGHT + f"of {data_standard_toad} no uplift needed.")
+            print(Fore.RED + Style.BRIGHT + "Directing back to Home page")
+            first_page()
+            break
+
+        print("Would you like pricing for the second and third year? type Y/N")
+        multi_year = input("Y/N:\n")
+        global second_year
+        second_year = cost /100 * 90 
+        global third_year
+        third_year = cost /100 * 85
+
+        if multi_year == "Y":
+            print(Fore.CYAN + Style.BRIGHT + f"Second year price {second_year}.")
+            print(Fore.CYAN + Style.BRIGHT + f"Third year price {third_year}.")
+            save_details()
+        elif multi_year == "N":
+            print(Fore.CYAN + Style.BRIGHT + "Directing to save page")
+            save_details()
+
+        else: 
+            print("invalid input")
+            
+
 def toad_mid():
     """Function to price mid Toad Quotes"""
 
