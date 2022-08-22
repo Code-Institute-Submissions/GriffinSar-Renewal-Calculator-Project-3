@@ -21,6 +21,11 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Sales_Program')
 stored_info = SHEET.worksheet('database')
 
+"""Constant Variables for List  Pice for each Product and Support Level"""
+data_standard_toad = float(price.acell('C3').value)
+data_mid_toad = float(price.acell('C4').value)
+data_prem_toad = float(price.acell('C5').value)
+
 
 def toad_stan():
     """Function to price standard Toad Quotes"""
@@ -54,7 +59,7 @@ def toad_stan():
 
         else: 
             print("invalid input")
-            
+
 
 def toad_mid():
     """Function to price mid Toad Quotes"""
