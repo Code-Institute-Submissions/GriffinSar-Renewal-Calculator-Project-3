@@ -19,12 +19,17 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Sales_Program')
+price = SHEET.worksheet('Price')
 stored_info = SHEET.worksheet('database')
 
 """Constant Variables for List  Pice for each Product and Support Level"""
 data_standard_toad = float(price.acell('C3').value)
 data_mid_toad = float(price.acell('C4').value)
 data_prem_toad = float(price.acell('C5').value)
+data_standard_kace = float(price.acell('D3').value)
+data_mid_kace = float(price.acell('D4').value)
+data_prem_kace = float(price.acell('D5').value)
+
 
 
 def toad_stan():
