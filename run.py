@@ -8,7 +8,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
 from rich.console import Console
-from rich.table import Table 
+from rich.table import Table
+import time 
 
 
 SCOPE = [
@@ -407,7 +408,8 @@ def first_page():
             console.print("Exiting calculator.\n", style = "bright_yellow", justify= "center")
             break  
         else:
-            console.print("Invalid input, try again .\n", style = "bright_yellow", justify= "center")   
+            console.print("Invalid input, try again .\n", style = "bright_yellow", justify= "center")
+            time.sleep(2)   
             first_page()
 
 first_page()
