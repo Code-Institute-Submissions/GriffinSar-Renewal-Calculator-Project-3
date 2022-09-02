@@ -333,7 +333,9 @@ def hist_data():
     """
     Allows user to view saved details
     """
-    cust_name = input("Enter your customer name here:\n")
+    cust_name = str(input(Fore.LIGHTGREEN_EX + Style.BRIGHT +\
+        "Enter your customer name here:\n"))
+    cust_name = cust_name.lower()
 
     if stored_info.find(cust_name, in_column=1):
          print(Fore.LIGHTCYAN_EX + Style.BRIGHT +
