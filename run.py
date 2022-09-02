@@ -372,39 +372,42 @@ def first_page():
     """
     Intro Page where the user can select the mode they want to use.
     """
-    print(Fore.GREEN + Style.BRIGHT + "Welcome to your Renewal Calculator!\n") 
-    print(Fore.MAGENTA + Style.BRIGHT + """\
+    console = Console()
+    console.print("Welcome to your Renewal Calculator!\n", style = "underline bold", justify = "center") 
+    console.print("""\
      ----------
     |----------|
     ||12345678||
     |----------|
     |[M|#|C][-]|
     |[7|8|9][+]|
-    |[4|5|6][x]|
+    |[4|5|6][T]|
     |[1|2|3][%]|
     |[.|O|:][=]|
-     ----------\n""")
+     ----------\n""", justify = "center")
 
-    print("This program lets you to enter last years")
-    print("renewal cost and get this years uplifted price.")
-    print("It also calculates multi-year pricing.")
-    print("You can save and retrieve customer pricing details as well\n")
+    console.print("This program lets you to enter last years", style = "bold purple", justify = "center")
+    console.print("renewal cost and get this years uplifted price.", style = "bold purple", justify = "center")
+    console.print("It also calculates multi-year pricing.", style = "bold purple", justify = "center")
+    console.print("You can save and retrieve customer pricing details as well\n", style = "bold purple", justify = "center")
 
     while True:
-        print(Fore.CYAN + Style.BRIGHT + "Enter 1 if you want to start a new\
-        \ncalculation.")
-        print(Fore.CYAN + Style.BRIGHT + "Enter 2 if you want to access\
-        \nhistorical data for a customer")
+        console.print("Enter 1 if you want to start a new calculation.", style = "bright_white", justify = "center")
+        console.print("Enter 2 if you want to access historical data for a customer", style = "bright_white", justify = "center")
+        console.print("Enter 3 if you want to exit the calculator\n", style = "bright_white", justify = "center")
 
-        mode = input("Please enter your selection here:\n")
+        mode = input(Fore.GREEN + Style.BRIGHT + "Please enter your selection here:\n")
         if mode == "1":
             new_customer()
             break
         elif mode == "2":
             hist_data()
             break
+        elif mode == "3":
+            console.print("Exiting calculator.\n", style = "bright_yellow", justify= "center")
+            break  
         else:
-            print(Fore.LIGHTYELLOW_EX + "Invalid input, please try again.\n")   
-
+            console.print("Invalid input, try again .\n", style = "bright_yellow", justify= "center")   
+            first_page()
 
 first_page()
