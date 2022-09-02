@@ -337,37 +337,39 @@ def hist_data():
         "Enter your customer name here:\n"))
     cust_name = cust_name.lower()
 
+    
     if stored_info.find(cust_name, in_column=1):
-         print(Fore.LIGHTCYAN_EX + Style.BRIGHT +
-              "\nThe details you currently have saved are:\n")
-         df = pd.DataFrame(stored_info.get_all_records())
-         user_record = df.loc[df['Customer'] == cust_name].to_string(index=False)
-         print(f"{Fore.LIGHTRED_EX }{Style.BRIGHT}\n{user_record}\n")
+        console = Console()
+        console.print("\nThe details you currently have saved are:\n", style= "white", justify= "center")
+        df = pd.DataFrame(stored_info.get_all_records())
+        user_record = df.loc[df['Customer'] == cust_name]\
+            .to_string(index=False)
+
+        print(f"{Fore.MAGENTA }{Style.BRIGHT}\n{user_record}\n")
+        time.sleep(3)
+
+        while True:
+            console = Console()
+            console.print("What would you like to do now?", style = "bold medium_purple", justify = "center")
+            console.print("Type 'a' to check another customer.", style = "bold bright_white", justify = "center")
+            console.print("Type 'b' to return to the main menu.", style = "bold bright_white", justify = "center")
+            
+            selection = input(Fore.GREEN + Style.BRIGHT + "Enter your selection here:\n")
+            selection = selection.lower()
+
+            if selection == "a":
+                hist_data()
+            elif selection == "b":
+                first_page()
+            else:
+                print("Incorect input, please try again")
+                hist_data()
     else:
-         print(Fore.LIGHTYELLOW_EX + "No Data Found to match this customer name")
-
-    while True:
-        print("What would you like to do now?")
-        print("Type 'a' to check another customer.")
-        print("Type 'b' to return to the main menu.")
-        print("Type 'c' to exit the renewal calculator")
-
-        selection = input("Enter your selection here:\n")
-        selection = selection.lower()
-
-        if selection == "a":
-            hist_data()
-        elif selection == "b":
-            first_page()
-        elif selection == "c":
-            print(f"{Fore.LIGHTMAGENTA_EX}{Style.BRIGHT}\
-        \nThank you for using the calculator and goodbye.")
-        break
-
-    else:
-        print(Fore.LIGHTYELLOW_EX +
-        "\nYou do not currently have any details stored.")
-        print(Fore.LIGHTYELLOW_EX + "Returning to the main menu...")
+        console = Console()
+        time.sleep(2)
+        console.print("You do not currently have any details stored.", style = "bright_white bold", justify= "center")
+        console.print("Returning to the main menu...\n\n\n", style = "bright_white bold", justify= "center")
+        time.sleep(2)
         first_page()
 
 
