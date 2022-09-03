@@ -105,9 +105,9 @@ def pricing_toad(product, support, cust_name):
 
     console = Console()
     console.print("Please enter last years renewal price", style= "bright_white bold")
-
-    value = float(input(Fore.GREEN + Style.BRIGHT + "Amount:\n"))
+  
     try:
+        value = float(input(Fore.GREEN + Style.BRIGHT + "Amount:\n"))
         if ((support == "s") and (value < data_standard_toad)):
             cost = value * 1.04
             table = Table(title="Uplift")
@@ -134,8 +134,10 @@ def pricing_toad(product, support, cust_name):
             multi(cost)
         else:
             console.print("Your quote has reached list price no uplift\n", style= "red", justify= "center")
-    except:
-        print("Invalid")
+    except ValueError:
+        print(Fore.LIGHTYELLOW_EX + "The values you have entered are not in \
+the correct format, please try again.\n")
+
         while True:
             console = Console()
             console.print("What would you like to do now?", style = "bold medium_purple", justify = "center")
@@ -156,7 +158,7 @@ def pricing_toad(product, support, cust_name):
                 print(f"{Fore.LIGHTMAGENTA_EX}{Style.BRIGHT}\
             \nThank you for using the calculator and goodbye.")
             break
-
+            time.sleep(3)
 
 def new_customer():
     """
