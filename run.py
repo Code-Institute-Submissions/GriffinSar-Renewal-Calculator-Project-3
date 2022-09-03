@@ -45,8 +45,7 @@ def save_details():
               "Would you like to save these details?\n")
         print("Type 's' to save these details for future use.")
         print("Type 'x' to return to the main menu.")
-        print("Type 'z' to exit calculator")
-
+        
         save = input("Enter your selection here:\n")
         save = save.lower()
         if save == "s":
@@ -62,10 +61,6 @@ def save_details():
             break
         elif save == "x":
             first_page()
-            break
-        elif save == "z":
-            print("Thanks for using the calculator, goodbye!")
-            break
         else:
             print(Fore.LIGHTYELLOW_EX + "Invalid input, please try again.\n")
 
@@ -103,7 +98,7 @@ def multi(vue):
     else:
         print("invalid input")
 
-        
+
 def pricing_toad(product, support, cust_name):
     """function to uplift the price of the previous renewal"""
     global cost
