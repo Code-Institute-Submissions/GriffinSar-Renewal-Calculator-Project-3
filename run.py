@@ -79,8 +79,7 @@ def pricing_toad(product, support, cust_name):
 
     value = float(input(Fore.GREEN + Style.BRIGHT + "Amount:\n"))
     try:
-        if ((support == "s")
-        and (value < data_standard_toad)):
+        if ((support == "s") and (value < data_standard_toad)):
             cost = value * 1.04
             table = Table(title="Uplift")
             table.add_column("Uplifted price")
@@ -88,8 +87,7 @@ def pricing_toad(product, support, cust_name):
             console = Console()
             console.print(table)
             multi(cost)
-        elif ((support == "m") and (product == "toad")\
-        and (value < data_mid_toad)):
+        elif ((support == "m") and (value < data_mid_toad)):
             cost = value * 1.05
             table = Table(title="Uplift")
             table.add_column("Uplifted price")
@@ -97,8 +95,7 @@ def pricing_toad(product, support, cust_name):
             console = Console()
             console.print(table)
             multi(cost)
-        elif ((support == "p") and (product == "toad")\
-        and (value < data_mid_toad)):
+        elif ((support == "p") and (value < data_mid_toad)):
             cost = value * 1.07
             table = Table(title="Uplift")
             table.add_column("Uplifted price")
@@ -108,6 +105,8 @@ def pricing_toad(product, support, cust_name):
             multi(cost)
         else:
             console.print("Your quote has reached list price no uplift\n", style= "red", justify= "center")
+    except:
+        print("Invalid")
         while True:
             console = Console()
             console.print("What would you like to do now?", style = "bold medium_purple", justify = "center")
@@ -119,17 +118,16 @@ def pricing_toad(product, support, cust_name):
             selection = selection.lower()
 
             if selection == "a":
+                time.sleep(2)
                 new_customer()
             elif selection == "b":
+                time.sleep(2)
                 first_page()
             elif selection == "c":
                 print(f"{Fore.LIGHTMAGENTA_EX}{Style.BRIGHT}\
             \nThank you for using the calculator and goodbye.")
             break
-            time.sleep(3)
-    except:
-        print("Not a valid input please try again.")
-        pricing_toad(product, support, cust_name)
+
 
 def new_customer():
     """
