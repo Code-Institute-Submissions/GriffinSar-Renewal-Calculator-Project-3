@@ -135,8 +135,8 @@ def pricing_toad(product, support, cust_name):
         else:
             console.print("Your quote has reached list price no uplift\n", style= "red", justify= "center")
     except ValueError:
-        print(Fore.LIGHTYELLOW_EX + "The values you have entered are not in \
-the correct format, please try again.\n")
+        console.print("The values you have entered are not in \
+the correct format, please try again.\n", style = "red", justify= "center")
 
         while True:
             console = Console()
