@@ -41,8 +41,9 @@ def save_details():
     """
 
     while True:
-        print(Fore.LIGHTRED_EX + Style.BRIGHT +
-              "Would you like to save these details?\n")
+        console = Console()
+        console.print("Would you like to save these details?\n",\
+    style= "bright_green", justify= "center")
         print("Type 's' to save these details for future use.")
         print("Type 'x' to return to the main menu.")
         
@@ -50,19 +51,18 @@ def save_details():
         save = save.lower()
         if save == "s":
             list_details = [
-                cust_name, type, cost, second_year, third_year
+                cust_name, type, level, cost, second_year, third_year
             ]
             print("Saving your details...\n")
             database = SHEET.worksheet('database')
             database.append_row(list_details)
-            print(Fore.CYAN + Style.BRIGHT + "Your details have been saved to the database.\n")
+            print("Your details have been saved to the database.\n")
             print("\nTaking you to the main page...")
             first_page()
-            break
         elif save == "x":
             first_page()
         else:
-            print(Fore.LIGHTYELLOW_EX + "Invalid input, please try again.\n")
+            console.print("Invalid input, please try again.\n", style = "red", justify= "center")
 
 def multi(vue):
     """
@@ -265,7 +265,8 @@ def first_page():
     Intro Page where the user can select the mode they want to use.
     """
     console = Console()
-    console.print("Welcome to your Renewal Calculator!\n", style = "underline bold", justify = "center") 
+    console.print("Welcome to your Renewal Calculator!\n",
+                  style="underline bold", justify="center")
     console.print("""\
      ----------
     |----------|
@@ -276,19 +277,27 @@ def first_page():
     |[4|5|6][T]|
     |[1|2|3][%]|
     |[.|O|:][=]|
-     ----------\n""", justify = "center")
+     ----------\n""", justify="center")
 
-    console.print("This program lets you to enter last years", style = "bold purple", justify = "center")
-    console.print("renewal cost and get this years uplifted price.", style = "bold purple", justify = "center")
-    console.print("It also calculates multi-year pricing.", style = "bold purple", justify = "center")
-    console.print("You can save and retrieve customer pricing details as well\n", style = "bold purple", justify = "center")
+    console.print("This program lets you to enter last years",
+                  style="bold purple", justify="center")
+    console.print("renewal cost and get this years uplifted price.",
+                  style="bold purple", justify="center")
+    console.print("It also calculates multi-year pricing.",
+                  style="bold purple", justify="center")
+    console.print("You can save and retrieve customer pricing details\
+                  as well\n", style="bold purple", justify="center")
 
     while True:
-        console.print("Enter 1 if you want to start a new calculation.", style = "bright_white", justify = "center")
-        console.print("Enter 2 if you want to access historical data for a customer", style = "bright_white", justify = "center")
-        console.print("Enter 3 if you want to exit the calculator\n", style = "bright_white", justify = "center")
+        console.print("Enter 1 if you want to start a new calculation.",
+                      style="bright_white", justify="center")
+        console.print("Enter 2 if you want to access historical data for a\
+                      customer", style="bright_white", justify="center")
+        console.print("Enter 3 if you want to exit the calculator\n",
+                      style="bright_white", justify="center")
 
-        mode = input(Fore.GREEN + Style.BRIGHT + "Please enter your selection here:\n")
+        mode = input(Fore.GREEN + Style.BRIGHT +
+                     "Please enter your selection here:\n")
         if mode == "1":
             new_customer()
             break
@@ -296,11 +305,13 @@ def first_page():
             hist_data()
             break
         elif mode == "3":
-            console.print("Exiting calculator.\n", style = "bright_yellow", justify= "center")
-            break  
+            console.print("Exiting calculator.\n",
+                          style="bright_yellow", justify="center")
+            break
         else:
-            console.print("Invalid input, try again .\n", style = "bright_yellow", justify= "center")
-            time.sleep(2)   
+            console.print("Invalid input, try again .\n",
+                          style="bright_yellow", justify="center")
+            time.sleep(2)
             first_page()
 
 first_page()
