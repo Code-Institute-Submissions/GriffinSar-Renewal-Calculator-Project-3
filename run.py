@@ -69,7 +69,41 @@ def save_details():
         else:
             print(Fore.LIGHTYELLOW_EX + "Invalid input, please try again.\n")
 
+def multi(vue):
+    """
+    Function that calculates a second and third year price for the user based on the 
+    uplifted one year price
+    """
+    
+    print("Would you like pricing for the second and third year? type Y/N")
+    multi_year = input("Y/N:\n")
+    if multi_year == "Y":
+        global second_year
+        second_year = vue /100 * 90 
+        global third_year
+        third_year = vue /100 * 85
 
+        table = Table(title = "Pricing")
+
+        table.add_column("First Year")
+        table.add_column("Second Year")
+        table.add_column("Third Year")
+
+        table.add_row(str(vue), str(second_year), str(third_year))
+
+        console = Console()
+        console.print(table)
+
+        save_details()
+
+    elif multi_year == "N":
+        print(Fore.CYAN + Style.BRIGHT + "Directing to home page")
+        time.sleep(2)
+        first_page()
+    else:
+        print("invalid input")
+
+        
 def pricing_toad(product, support, cust_name):
     """function to uplift the price of the previous renewal"""
     global cost
