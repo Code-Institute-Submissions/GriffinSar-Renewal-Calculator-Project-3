@@ -233,51 +233,58 @@ def pricing_toad(product, support, cust_name):
 
 def new_customer():
     """
-    Function to let user enter their details along with quote type so they can be 
-    directed to the correct calculation"""
+    Function to let user enter their details along with quote type so they can
+    be directed to the correct calculation"""
 
     console = Console()
     console.print("To get started, please enter your\
-    \ncustomer name.", style = "bold bright_white", justify = "center")
+    \ncustomer name.", style="bold bright_white", justify="center")
     console.print("Names must be between 2 and 15\
-    \ncharacters,", style = "bold bright_white", justify = "center")
+    \ncharacters,", style="bold bright_white", justify="center")
     console.print("and should contain only letters from a\
-    \nto z.", style = "bold bright_white", justify = "center")
+    \nto z.", style="bold bright_white", justify="center")
 
     global cust_name
-    cust_name = input(Fore.GREEN + Style.BRIGHT + "Enter your customer name here:\n")
+    cust_name = input(Fore.GREEN + Style.BRIGHT +
+                      "Enter your customer name here:\n")
     cust_name = cust_name.lower()
 
     if cust_name.isalpha() and len(cust_name) > 1 and len(cust_name) < 16:
-        console.print("Customer name accepted", style= "bright_yellow", justify= "center")
+        console.print("Customer name accepted",
+                      style="bright_yellow", justify="center")
     else:
-        console.print("Not accepted try again", style= "bold bright_red")
+        console.print("Not accepted try again", style="bold bright_red")
         new_customer()
-        
 
-    console.print("Please enter your product: Toad or Kace", style= "bright_white bold")
+    console.print("Please enter your product: Toad or Kace",
+                  style="bright_white bold")
     global type
-    type = input(Fore.GREEN + Style.BRIGHT + "Please enter your choice here:\n")
+    type = input(Fore.GREEN + Style.BRIGHT +
+                 "Please enter your choice here:\n")
     type = type.lower()
 
     if ((type == "toad") or (type == "kace")):
-        console.print("Product accepted", style= "bright_yellow", justify= "center")
+        console.print("Product accepted",
+                      style="bright_yellow", justify="center")
     else:
-        print(Fore.LIGHTYELLOW_EX + "The product is not valid,please try again.")
+        print(Fore.LIGHTYELLOW_EX +
+              "The product is not valid,please try again.")
         new_customer()
 
     console.print("Please enter the support level of your quote\
-    \n'S' for Standard, 'M' for Mid and 'P' for Premiere", style = "bright_white bold")
+                  \n'S' for Standard, 'M' for Mid and 'P' for Premiere",
+                  style="bright_white bold")
     global level
     level = input(Fore.GREEN + Style.BRIGHT + "S,M or P:\n ")
     level = level.lower()
     if ((level == "s") or (level == "m") or (level == "p")):
-        console.print("Support level accepted", style="bright_yellow", justify= "center")
+        console.print("Support level accepted",
+                      style="bright_yellow", justify="center")
     else:
-        print(Fore.LIGHTYELLOW_EX + "The support level is not valid,please try again.")
+        print(Fore.LIGHTYELLOW_EX +
+              "The support level is not valid,please try again.")
         new_customer()
-    
-    
+
     if type == "toad":
         pricing_toad(type, level, cust_name)
     elif type == "kace":
