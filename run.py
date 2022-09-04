@@ -99,8 +99,74 @@ def multi(vue):
         print("invalid input")
 
 
+def pricing_kace(product, support, cust_name):
+    """function to uplift the price of the previous renewal for kace"""
+    global cost
+
+    console = Console()
+    console.print("Please enter last years renewal price", style= "bright_white bold")
+  
+    try:
+        value = float(input(Fore.GREEN + Style.BRIGHT + "Amount:\n"))
+        if ((support == "s") and (value < data_standard_kace)):
+            cost = value * 1.05
+            table = Table(title="Uplift")
+            table.add_column("Uplifted price")
+            table.add_row(str(cost))
+            console = Console()
+            console.print(table)
+            multi(cost)
+        elif ((support == "m") and (value < data_mid_kace)):
+            cost = value * 1.07
+            table = Table(title="Uplift")
+            table.add_column("Uplifted price")
+            table.add_row(str(cost))
+            console = Console()
+            console.print(table)
+            multi(cost)
+        elif ((support == "p") and (value < data_prem_kace)):
+            cost = value * 1.09
+            table = Table(title="Uplift")
+            table.add_column("Uplifted price")
+            table.add_row(str(cost))
+            console = Console()
+            console.print(table)
+            multi(cost)
+        else:
+            console.print("Your quote has reached list price no uplift\n", style= "red", justify= "center")
+            console.print ("Directing to home page", style= "red", justify= "center")
+            first_page()
+    except ValueError:
+        console.print("The values you have entered are not in\
+                    the correct format, please try again.\n", 
+                    style = "red", justify= "center")
+        pricing_kace(product, support, cust_name)
+        
+        while True:
+            console = Console()
+            console.print("What would you like to do now?", style = "bold medium_purple", justify = "center")
+            console.print("Type 'a' to start another calculation.", style = "bold bright_white", justify = "center")
+            console.print("Type 'b' to return to the main menu.", style = "bold bright_white", justify = "center")
+            console.print("Type 'c' to exit the renewal calculator\n", style = "bold bright_white", justify = "center")
+
+            selection = input(Fore.GREEN + Style.BRIGHT + "Enter your selection here:\n")
+            selection = selection.lower()
+
+            if selection == "a":
+                time.sleep(2)
+                new_customer()
+            elif selection == "b":
+                time.sleep(2)
+                first_page()
+            elif selection == "c":
+                print(f"{Fore.LIGHTMAGENTA_EX}{Style.BRIGHT}\
+            \nThank you for using the calculator and goodbye.")
+            break
+            time.sleep(3)
+
+
 def pricing_toad(product, support, cust_name):
-    """function to uplift the price of the previous renewal"""
+    """function to uplift the price of the previous renewal for toad"""
     global cost
 
     console = Console()
@@ -124,7 +190,7 @@ def pricing_toad(product, support, cust_name):
             console = Console()
             console.print(table)
             multi(cost)
-        elif ((support == "p") and (value < data_mid_toad)):
+        elif ((support == "p") and (value < data_prem_toad)):
             cost = value * 1.07
             table = Table(title="Uplift")
             table.add_column("Uplifted price")
@@ -134,12 +200,14 @@ def pricing_toad(product, support, cust_name):
             multi(cost)
         else:
             console.print("Your quote has reached list price no uplift\n", style= "red", justify= "center")
-            conole.print ("Directing to home page", style= "red", justify= "center")
+            console.print ("Directing to home page", style= "red", justify= "center")
             first_page()
     except ValueError:
-        console.print("The values you have entered are not in \
-the correct format, please try again.\n", style = "red", justify= "center")
-
+        console.print("The values you have entered are not in\
+                    the correct format, please try again.\n", 
+                    style = "red", justify= "center")
+        pricing_toad(product, support, cust_name)
+        
         while True:
             console = Console()
             console.print("What would you like to do now?", style = "bold medium_purple", justify = "center")
