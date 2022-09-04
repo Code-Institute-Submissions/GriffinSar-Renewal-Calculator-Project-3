@@ -134,6 +134,8 @@ def pricing_toad(product, support, cust_name):
             multi(cost)
         else:
             console.print("Your quote has reached list price no uplift\n", style= "red", justify= "center")
+            conole.print ("Directing to home page", style= "red", justify= "center")
+            first_page()
     except ValueError:
         console.print("The values you have entered are not in \
 the correct format, please try again.\n", style = "red", justify= "center")
@@ -201,7 +203,7 @@ def new_customer():
     level = input(Fore.GREEN + Style.BRIGHT + "S,M or P:\n ")
     level = level.lower()
     if ((level == "s") or (level == "m") or (level == "p")):
-        console.print("Support level accepted", style= "bright_yellow", justify= "center")
+        console.print("Support level accepted", style="bright_yellow", justify= "center")
     else:
         print(Fore.LIGHTYELLOW_EX + "The support level is not valid,please try again.")
         new_customer()
