@@ -230,6 +230,7 @@ def pricing_toad(product, support, cust_name):
             break
             time.sleep(3)
 
+
 def new_customer():
     """
     Function to let user enter their details along with quote type so they can be 
@@ -290,14 +291,14 @@ def hist_data():
     """
     Allows user to view saved details
     """
-    cust_name = str(input(Fore.LIGHTGREEN_EX + Style.BRIGHT +\
-        "Enter your customer name here:\n"))
+    cust_name = str(input(Fore.LIGHTGREEN_EX + Style.BRIGHT +
+                    "Enter your customer name here:\n"))
     cust_name = cust_name.lower()
 
-    
     if stored_info.find(cust_name, in_column=1):
         console = Console()
-        console.print("\nThe details you currently have saved are:\n", style= "white", justify= "center")
+        console.print("\nThe details you currently have saved are:\n",
+                      style="white", justify="center")
         df = pd.DataFrame(stored_info.get_all_records())
         user_record = df.loc[df['Customer'] == cust_name]\
             .to_string(index=False)
@@ -307,11 +308,14 @@ def hist_data():
 
         while True:
             console = Console()
-            console.print("What would you like to do now?", style = "bold medium_purple", justify = "center")
-            console.print("Type 'a' to check another customer.", style = "bold bright_white", justify = "center")
-            console.print("Type 'b' to return to the main menu.", style = "bold bright_white", justify = "center")
-            
-            selection = input(Fore.GREEN + Style.BRIGHT + "Enter your selection here:\n")
+            console.print("What would you like to do now?",
+                          style="bold medium_purple", justify="center")
+            console.print("Type 'a' to check another customer.",
+                          style="bold bright_white", justify="center")
+            console.print("Type 'b' to return to the main menu.",
+                          style="bold bright_white", justify="center")
+            selection = input(Fore.GREEN + Style.BRIGHT +
+                              "Enter your selection here:\n")
             selection = selection.lower()
 
             if selection == "a":
@@ -324,8 +328,10 @@ def hist_data():
     else:
         console = Console()
         time.sleep(2)
-        console.print("You do not currently have any details stored.", style = "bright_white bold", justify= "center")
-        console.print("Returning to the main menu...\n\n\n", style = "bright_white bold", justify= "center")
+        console.print("You do not currently have any details stored.",
+                      style="bright_white bold", justify="center")
+        console.print("Returning to the main menu...\n\n\n",
+                      style="bright_white bold", justify="center")
         time.sleep(2)
         first_page()
 
@@ -355,8 +361,8 @@ def first_page():
                   style="bold purple", justify="center")
     console.print("It also calculates multi-year pricing.",
                   style="bold purple", justify="center")
-    console.print("You can save and retrieve customer pricing details\
-                  as well\n", style="bold purple", justify="center")
+    console.print("You can save and retrieve customer pricing details",
+                  style="bold purple", justify="center")
 
     while True:
         console.print("Enter 1 if you want to start a new calculation.",
