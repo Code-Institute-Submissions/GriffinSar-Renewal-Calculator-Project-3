@@ -64,21 +64,22 @@ def save_details():
         else:
             console.print("Invalid input, please try again.\n", style = "red", justify= "center")
 
+
 def multi(vue):
     """
-    Function that calculates a second and third year price for the user based on the 
-    uplifted one year price
+    Function that calculates a second and third year price for the user based
+    on the uplifted one year price
     """
-    
+
     print("Would you like pricing for the second and third year? type Y/N")
     multi_year = input("Y/N:\n")
     if multi_year == "Y":
         global second_year
-        second_year = vue /100 * 90 
+        second_year = vue / 100 * 90
         global third_year
-        third_year = vue /100 * 85
+        third_year = vue / 100 * 85
 
-        table = Table(title = "Pricing")
+        table = Table(title="Pricing")
 
         table.add_column("First Year")
         table.add_column("Second Year")
