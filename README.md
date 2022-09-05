@@ -1,3 +1,14 @@
+# Table of Contents
+
+- [Purpose](#purpose)
+    - [Target Audience](#target-audience)
+- [User-Stories](#user-stories)
+    - [First-Time-Visitor-Goals](#first-time-visitor-goals)
+    - [Returning-Visitor-Goals](#returning-visitor-goals)
+    - [Frequent-Visitor-Goals](#frequent-visitor-goals)
+    - [Owner-Goals](#owner-goals)
+
+
 # Sales Calculator
 
 ### Purpose

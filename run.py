@@ -49,7 +49,7 @@ def save_details():
                       style="bright_green", justify="center")
         print("Type 's' to save these details for future use.")
         print("Type 'x' to return to the main menu.")
-        save = input("Enter your selection here:\n")
+        save = input(Fore.GREEN + Style.BRIGHT + "Enter your selection here:\n")
         save = save.lower()
 
         if save == "s":
@@ -78,7 +78,7 @@ def multi(vue):
     """
 
     print("Would you like pricing for the second and third year? type Y/N")
-    multi_year = input("Y/N:\n")
+    multi_year = input(Fore.GREEN + Style.BRIGHT + "Y/N:\n")
     if multi_year == "Y":
         global second_year
         second_year = vue / 100 * 90
