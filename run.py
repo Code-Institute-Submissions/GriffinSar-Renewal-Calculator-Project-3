@@ -153,7 +153,7 @@ def pricing_oi(product, support, cust_name):
         console.print("the correct format, please try again",
                       style="red", justify="center")
                       
-        pricing_kace(product, support, cust_name)
+        pricing_oi(product, support, cust_name)
 
         while True:
             console = Console()
@@ -184,12 +184,13 @@ def pricing_oi(product, support, cust_name):
 
 
 def pricing_kace(product, support, cust_name):
-    """function to uplift the price of the previous renewal for kace"""
+    """function to uplift the price of the previous renewal for Kace"""
     global cost
 
     console = Console()
-    console.print("Please enter last years renewal price", style= "bright_white bold")
-  
+    console.print("Please enter last years renewal price",
+                  style="bright_white bold")
+
     try:
         value = float(input(Fore.GREEN + Style.BRIGHT + "Amount:\n"))
         if ((support == "s") and (value < data_standard_kace)):
@@ -217,23 +218,32 @@ def pricing_kace(product, support, cust_name):
             console.print(table)
             multi(cost)
         else:
-            console.print("Your quote has reached list price no uplift\n", style= "red", justify= "center")
-            console.print ("Directing to home page", style= "red", justify= "center")
+            console.print("Your quote has reached list price no uplift\n",
+                          style="red", justify="center")
+            console.print ("Directing to home page", style="red",
+                           justify="center")
+            time.sleep(2)
             first_page()
     except ValueError:
-        console.print("The values you have entered are not in\
-                    the correct format, please try again.\n", 
-                    style = "red", justify= "center")
+        console.print("The values you have entered are not in",
+                      style="red", justify="center")
+        console.print("the correct format, please try again",
+                      style="red", justify="center")                     
         pricing_kace(product, support, cust_name)
-        
+
         while True:
             console = Console()
-            console.print("What would you like to do now?", style = "bold medium_purple", justify = "center")
-            console.print("Type 'a' to start another calculation.", style = "bold bright_white", justify = "center")
-            console.print("Type 'b' to return to the main menu.", style = "bold bright_white", justify = "center")
-            console.print("Type 'c' to exit the renewal calculator\n", style = "bold bright_white", justify = "center")
+            console.print("What would you like to do now?",
+                          style="bold medium_purple", justify="center")
+            console.print("Type 'a' to start another calculation.",
+                          style="bold bright_white", justify="center")
+            console.print("Type 'b' to return to the main menu.",
+                          style="bold bright_white", justify="center")
+            console.print("Type 'c' to exit the renewal calculator\n",
+                          style="bold bright_white", justify="center")
 
-            selection = input(Fore.GREEN + Style.BRIGHT + "Enter your selection here:\n")
+            selection = input(Fore.GREEN + Style.BRIGHT + "Enter your selection\
+                              here:")
             selection = selection.lower()
 
             if selection == "a":
@@ -250,12 +260,13 @@ def pricing_kace(product, support, cust_name):
 
 
 def pricing_toad(product, support, cust_name):
-    """function to uplift the price of the previous renewal for toad"""
+    """function to uplift the price of the previous renewal for Toad"""
     global cost
 
     console = Console()
-    console.print("Please enter last years renewal price", style= "bright_white bold")
-  
+    console.print("Please enter last years renewal price",
+                  style="bright_white bold")
+
     try:
         value = float(input(Fore.GREEN + Style.BRIGHT + "Amount:\n"))
         if ((support == "s") and (value < data_standard_toad)):
@@ -283,23 +294,32 @@ def pricing_toad(product, support, cust_name):
             console.print(table)
             multi(cost)
         else:
-            console.print("Your quote has reached list price no uplift\n", style= "red", justify= "center")
-            console.print ("Directing to home page", style= "red", justify= "center")
+            console.print("Your quote has reached list price no uplift\n",
+                          style="red", justify="center")
+            console.print ("Directing to home page", style="red",
+                           justify="center")
+            time.sleep(2)
             first_page()
     except ValueError:
-        console.print("The values you have entered are not in\
-                    the correct format, please try again.\n", 
-                    style = "red", justify= "center")
+        console.print("The values you have entered are not in",
+                      style="red", justify="center")
+        console.print("the correct format, please try again",
+                      style="red", justify="center")                     
         pricing_toad(product, support, cust_name)
-        
+
         while True:
             console = Console()
-            console.print("What would you like to do now?", style = "bold medium_purple", justify = "center")
-            console.print("Type 'a' to start another calculation.", style = "bold bright_white", justify = "center")
-            console.print("Type 'b' to return to the main menu.", style = "bold bright_white", justify = "center")
-            console.print("Type 'c' to exit the renewal calculator\n", style = "bold bright_white", justify = "center")
+            console.print("What would you like to do now?",
+                          style="bold medium_purple", justify="center")
+            console.print("Type 'a' to start another calculation.",
+                          style="bold bright_white", justify="center")
+            console.print("Type 'b' to return to the main menu.",
+                          style="bold bright_white", justify="center")
+            console.print("Type 'c' to exit the renewal calculator\n",
+                          style="bold bright_white", justify="center")
 
-            selection = input(Fore.GREEN + Style.BRIGHT + "Enter your selection here:\n")
+            selection = input(Fore.GREEN + Style.BRIGHT + "Enter your selection\
+                              here:")
             selection = selection.lower()
 
             if selection == "a":
