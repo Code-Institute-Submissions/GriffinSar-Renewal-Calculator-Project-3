@@ -7,6 +7,25 @@
     - [Returning-Visitor-Goals](#returning-visitor-goals)
     - [Frequent-Visitor-Goals](#frequent-visitor-goals)
     - [Owner-Goals](#owner-goals)
+- [Design](#design)
+    - [Colour-Scheme](#colour-scheme)
+    - [Imagery](#imagery)
+- [Flow-Chart](#flow-chart)
+- [Features](#features)
+    - [Existing-Features](#existing-features)
+    - [Features-left-to-Implement](#features-left-to-implement)
+- [Testing](#testing)
+    - [Manual-Testing](#manual-testing)
+    - [Issues-and-Resolutions](#issues-and-resolutions-found-during-testing)
+    - [Validator-Testing](#validator-testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+    - [Code](#code)
+    - [Technologies](#technologies)
+- [Acknowledgements](#acknowledgements)
+- [Disclaimer](#disclaimer)
 
 
 # Sales Calculator
@@ -41,3 +60,76 @@ A frequent Visitor wants to be able to price new quotes and also get previous pr
 - As the owner, I want to provide clear and accurate information.
 - As the owner, I want to create an experience that is pleasant for users.
 - As the owner, I want the program to continue without crashing due to an error caused by user input.
+
+# Design
+
+### Colour scheme
+
+As this is a terminal based application the level of detail for colour in page are a little limited. 
+I have imported colours from the Python library colorama and also the Python Libary Rich. I have tried to use the colours consistently throughout the program.
+- Purple - The introduction message on the home page is in purple 
+- Green - All input messages are green to make then stand out to the user.
+- Yellow - confirmation messages to the user are yellow
+- Red - Error Messages are in Red, this colour is used as Red would be familiar to the user as the colour commonly used for an error.
+
+### Imagery
+
+I have used an image of a calculator, it is just a simple image but draws the users eye. It also helps to make the purpose of the site clear right from the initial page.
+
+![calculator](assets/images/calculator.png)
+
+# Flow Chart
+
+![flowChart](assets/images/chart.png)
+
+# Features 
+
+## Existing Features
+
+### Into Page
+When the program loads the user is Greated with text welcoming them to the Renewal Calculator and an image of a calculator. There is a description of what the program does. It then gives the user two options they can either choose to start a new calculation or they can get access to historical data for their customer. 
+They are then prompted to enter which option they would like to go for by inputting 1 for new calculation or 2 for historical data.
+
+![intro](assets/images/intro-page.png)
+
+### New Calculation
+If the user selects to start a new calculation they are then prompted to enter their customer's name. There is a message outlining the format the customer name must take. If the customer name fits the convention then a message is printed telling the user that the customer name is accepted. If the user enters a format that is not accepted they will recieve and error message telling them the name they have entered is not valid and they will be prompted to re-enter the user name. 
+
+### Product Select
+Once the user has entered a customer name that is accepted by the system they will then be prompted to select the product their quote is for, either Toad or Kace. 
+If the enter anything other than Toad or Kace they will get an error stating Invalid input and they will be prompted to try again. 
+
+### Level Select
+ Once they have entered the amount the user is then asked to select the level of support on the quote, is it standard, mid or premier. The product type and support level determine the pricing that is applied to the quote.
+
+### Enter Amount
+The user is then prompted to enter the amount for last years renewal quote.
+
+
+### Print Calculation
+The program then checks the price the user has entered against a price book I have created in a google sheet. 
+
+![pricebook](assets/images/pricebook.png)
+
+ If the price is below what is in the google sheet an uplift is applied but if the user has entered a price that matches or is above the price that is in the price book the system will inform them that the  calculation can not be done as their quote had already reached list  price. 
+ If the price is below the list price then the applicable uplift will be applied and the price will be printed.
+
+ ![uplift]()
+
+### PPM Calculation 
+
+The user can also have the system calculate the price for a second and third year. This is calculated at 90% of the 1 year price for the second year and 85% of the one year price for the third year. This is following the pricing guidelines that the reps in my company follow, the discount is applied to incentivies customers to renew for more than one year. So this calculator quickly presents the pricing for all three years.
+
+ ![ppm]()
+
+### Save 
+The usesr is then prompted to either save their details or exit. If they choose the save the details are saved to a google sheet. They can then be accessed by the user at a later date by entering the customer name.
+
+### Access stored data
+The user can enter the customer  name and any saved details for this customer will be printed to the terminal. It gives the customer name, product, supporot level and the pricing for One, Two and three years. 
+
+ ![saved](assets/images/saved%20details.png)
+
+ ### Features Left to Implement
+Currency converter. I hope in future to implement a currency converter as part of this renewal calculator.
+
