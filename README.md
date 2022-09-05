@@ -18,6 +18,7 @@
     - [Manual-Testing](#manual-testing)
     - [Issues-and-Resolutions](#issues-and-resolutions-found-during-testing)
     - [Validator-Testing](#validator-testing)
+    - [Bugs](#bugs)
 - [Deployment](#deployment)
 - [Credits](#credits)
     - [Content](#content)
@@ -133,3 +134,41 @@ The user can enter the customer  name and any saved details for this customer wi
  ### Features Left to Implement
 Currency converter. I hope in future to implement a currency converter as part of this renewal calculator.
 
+# Testing
+
+### Calculation Testing
+The first thing I tested was that the calculations done in the app were actually correct. I built a calculator in Google sheets and gave the input of 30 euro for each support level and type to check what the output was. I then did the same in the calculator I input 30 for each of the types and support level and saved each to the google sheets. All the prices for the uplift and the two and three years matched my google sheet calculation so I know it was working correctly.
+
+As you can see in the two images below the output is the same from the google sheets and the app itself. 
+
+![GoogleSheetsTest](assets/images/google-sheets-test.png)
+![AppSavedData](assets/images/app-test.png)
+
+### Manual Testing
+
+### Validator Testing
+
+The Python code was run through the PEP8 online:
+![PEP8ERRORS](assets/images/pep8-errors.png)
+
+I initially obtained a large amount of "unexpected space around keyword/parameters equals". I had not realised that I should not put a space between the word style and the equal sign and the parameter for Rich. I removed these spaces across the program and this resolved most of the erros. 
+
+I also recieved some errors for lines being to long. So I spent time making sure that my lines were not longer than 80 characters and that follow on lines were properly indented. 
+
+Once I fixed these issues the code then passed successfully.
+
+![PEP8](assets/images/pep8-pass.png)
+
+# Bugs
+
+## Current Bugs
+
+To the best of my knowledge there are no bugs currently in this program.
+
+## Resolved Bugs
+
+- I had an issue when the user went through and did a new calculation when they went back to the start page and selected to exit the calculator, it wouldnt exit but instead displayed the menu from the save function. I realised I needed to enter break points so that this part of the save function would not keep running when the user exited to the home page. Once I entered them it fixed this bug.
+
+- I was encountering a bug when the user entered anything that wasnt a number. It was causing the program to crash. I implemented a try except block. This handled the exception if the user enters something that isnt a number and instead of crashing the program prints and error and directs the user back to the start of the function.
+
+# Deployment
