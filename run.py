@@ -45,11 +45,10 @@ def save_details():
 
     while True:
         console = Console()
-        console.print("Would you like to save these details?\n",\
-    style= "bright_green", justify= "center")
+        console.print("Would you like to save these details?\n",
+                      style="bright_green", justify="center")
         print("Type 's' to save these details for future use.")
         print("Type 'x' to return to the main menu.")
-            
         save = input("Enter your selection here:\n")
         save = save.lower()
 
@@ -63,12 +62,13 @@ def save_details():
             print("Your details have been saved to the database.\n")
             print("\nTaking you to the main page...")
             first_page()
-            break 
+            break
         elif save == "x":
             first_page()
-            break 
+            break
         else:
-            console.print("Invalid input, please try again.\n", style = "red", justify= "center")
+            console.print("Invalid input, please try again.\n", style="red",
+                          justify="center")
 
 
 def multi(vue):
