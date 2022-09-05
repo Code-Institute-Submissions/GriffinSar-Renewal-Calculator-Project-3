@@ -32,6 +32,9 @@ data_prem_toad = float(price.acell('C5').value)
 data_standard_kace = float(price.acell('D3').value)
 data_mid_kace = float(price.acell('D4').value)
 data_prem_kace = float(price.acell('D5').value)
+data_standard_toad = float(price.acell('E3').value)
+data_mid_toad = float(price.acell('E4').value)
+data_prem_toad = float(price.acell('E5').value)
 
 
 def save_details():
@@ -257,14 +260,14 @@ def new_customer():
         console.print("Not accepted try again", style="bold bright_red")
         new_customer()
 
-    console.print("Please enter your product: Toad or Kace",
+    console.print("Please enter your product: Toad, Kace or OI",
                   style="bright_white bold")
     global type
     type = input(Fore.GREEN + Style.BRIGHT +
                  "Please enter your choice here:\n")
     type = type.lower()
 
-    if ((type == "toad") or (type == "kace")):
+    if ((type == "toad") or (type == "kace") or (type == "oi")):
         console.print("Product accepted",
                       style="bright_yellow", justify="center")
     else:
@@ -290,6 +293,8 @@ def new_customer():
         pricing_toad(type, level, cust_name)
     elif type == "kace":
         pricing_kace(type, level, cust_name)
+    elif type == "oi":
+        pricing_oi(type, level, cust_name)
     else:
         print(Fore.LIGHTYELLOW_EX + "Invalid input, please try again.\n")
         new_customer()
@@ -320,7 +325,7 @@ def hist_data():
                           style="bold medium_purple", justify="center")
             console.print("Type 'a' to check another customer.",
                           style="bold bright_white", justify="center")
-            console.print("Type 'b' to return to the main menu.",
+            console.print("Type 'b' to return to the main menu.\n",
                           style="bold bright_white", justify="center")
             selection = input(Fore.GREEN + Style.BRIGHT +
                               "Enter your selection here:\n")
@@ -330,6 +335,7 @@ def hist_data():
                 hist_data()
             elif selection == "b":
                 first_page()
+                break
             else:
                 print("Incorect input, please try again")
                 hist_data()
@@ -397,5 +403,6 @@ def first_page():
                           style="bright_yellow", justify="center")
             time.sleep(2)
             first_page()
+
 
 first_page()
