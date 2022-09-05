@@ -151,7 +151,7 @@ def pricing_oi(product, support, cust_name):
         console.print("The values you have entered are not in",
                       style="red", justify="center")
         console.print("the correct format, please try again",
-                      style="red", justify="center")              
+                      style="red", justify="center")
         pricing_oi(product, support, cust_name)
 
         while True:
@@ -227,7 +227,7 @@ def pricing_kace(product, support, cust_name):
         console.print("The values you have entered are not in",
                       style="red", justify="center")
         console.print("the correct format, please try again",
-                      style="red", justify="center")               
+                      style="red", justify="center")
         pricing_kace(product, support, cust_name)
 
         while True:
@@ -303,7 +303,7 @@ def pricing_toad(product, support, cust_name):
         console.print("The values you have entered are not in",
                       style="red", justify="center")
         console.print("the correct format, please try again",
-                      style="red", justify="center")             
+                      style="red", justify="center")
         pricing_toad(product, support, cust_name)
 
         while True:
