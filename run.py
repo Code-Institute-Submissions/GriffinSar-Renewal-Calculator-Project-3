@@ -49,7 +49,8 @@ def save_details():
                       style="bright_green", justify="center")
         print("Type 's' to save these details for future use.")
         print("Type 'x' to return to the main menu.")
-        save = input(Fore.GREEN + Style.BRIGHT + "Enter your selection here:\n")
+        save = input(Fore.GREEN + Style.BRIGHT +
+                     "Enter your selection here:\n")
         save = save.lower()
 
         if save == "s":
@@ -57,12 +58,15 @@ def save_details():
                 cust_name, type, level, cost, second_year, third_year
             ]
             console = Console()
-            console.print("Saving your details...\n", style="bright_yellow", justify="center")
+            console.print("Saving your details...\n",
+                          style="bright_yellow", justify="center")
             time.sleep(1)
             database = SHEET.worksheet('database')
             database.append_row(list_details)
-            console.print("Your details have been saved to the database.", style="bright_white", justify="center")
-            console.print("\nTaking you to the main menu...", style="bright_white", justify="center")
+            console.print("Your details have been saved to the database.",
+                          style="bright_white", justify="center")
+            console.print("\nTaking you to the main menu...",
+                          style="bright_white", justify="center")
             time.sleep(2)
             first_page()
             break
@@ -70,8 +74,8 @@ def save_details():
             first_page()
             break
         else:
-            console.print("Invalid input, please try again.\n", style="bright_red",
-                          justify="center")
+            console.print("Invalid input, please try again.\n",
+                          style="bright_red", justify="center")
 
 
 def multi(vue):
@@ -173,8 +177,8 @@ def pricing_oi(product, support, cust_name):
             console.print("Type 'c' to exit the renewal calculator\n",
                           style="bold bright_white", justify="center")
 
-            selection = input(Fore.GREEN + Style.BRIGHT + "Enter your selection\
-                              here:")
+            selection = input(Fore.GREEN + Style.BRIGHT +
+                              "Enter your selection here:\n")
             selection = selection.lower()
 
             if selection == "a":
@@ -249,8 +253,8 @@ def pricing_kace(product, support, cust_name):
             console.print("Type 'c' to exit the renewal calculator\n",
                           style="bold bright_white", justify="center")
 
-            selection = input(Fore.GREEN + Style.BRIGHT + "Enter your selection\
-                              here:")
+            selection = input(Fore.GREEN + Style.BRIGHT +
+                              "Enter your selection here:\n")
             selection = selection.lower()
 
             if selection == "a":
@@ -325,8 +329,8 @@ def pricing_toad(product, support, cust_name):
             console.print("Type 'c' to exit the renewal calculator\n",
                           style="bold bright_white", justify="center")
 
-            selection = input(Fore.GREEN + Style.BRIGHT + "Enter your selection\
-                              here:")
+            selection = input(Fore.GREEN + Style.BRIGHT +
+                              "Enter your selection here:\n")
             selection = selection.lower()
 
             if selection == "a":
