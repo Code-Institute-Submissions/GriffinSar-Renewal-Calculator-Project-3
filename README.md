@@ -15,8 +15,8 @@
     - [Existing-Features](#existing-features)
     - [Features-left-to-Implement](#features-left-to-implement)
 - [Testing](#testing)
+    - [Calculation-Testing](#calculation-testing)
     - [Manual-Testing](#manual-testing)
-    - [Issues-and-Resolutions](#issues-and-resolutions-found-during-testing)
     - [Validator-Testing](#validator-testing)
     - [Bugs](#bugs)
 - [Deployment](#deployment)
@@ -115,13 +115,13 @@ The program then checks the price the user has entered against a price book I ha
  If the price is below what is in the google sheet an uplift is applied but if the user has entered a price that matches or is above the price that is in the price book the system will inform them that the  calculation can not be done as their quote had already reached list  price. 
  If the price is below the list price then the applicable uplift will be applied and the price will be printed.
 
- ![uplift]()
+ ![uplift](assets/images/uplift-feature.png)
 
-### PPM Calculation 
+### Second and Third Year Calculation 
 
 The user can also have the system calculate the price for a second and third year. This is calculated at 90% of the 1 year price for the second year and 85% of the one year price for the third year. This is following the pricing guidelines that the reps in my company follow, the discount is applied to incentivies customers to renew for more than one year. So this calculator quickly presents the pricing for all three years.
 
- ![ppm]()
+ ![ppm](assets/images/ppm-feature.png)
 
 ### Save 
 The usesr is then prompted to either save their details or exit. If they choose the save the details are saved to a google sheet. They can then be accessed by the user at a later date by entering the customer name.
@@ -152,6 +152,16 @@ As you can see in the two images below the output is the same from the google sh
 ![AppSavedData](assets/images/app-test.png)
 
 ### Manual Testing
+
+When the program had been successfully deployed to Heroku, I followed the logic flow through all the user actions that can be taken in the app to check that it responded appropriately:
+
+![FirstPage](assets/images/firstpage-test.png)
+![HistoricalData](assets/images/historical-data-test.png)
+![NewCust](assets/images/new-cust-test.png)
+![ToadKace](assets/images/toadkace-pricing.png)
+![OI](assets/images/oi-test.png)
+![MultiSave](assets/images/multi-save-test.png)
+
 
 ### Validator Testing
 
@@ -227,3 +237,27 @@ Steps to ensure that the credentials file is stored securely and details are not
 
 - Open the "gitignore" file in Gitpod.
 - Add "creds.json" (without the quotes) to the gitignore file and save the file.
+
+### Heroku
+
+- Before using Heroku, create a list of any dependencies that have been installed in your workspace by using the command "pip3 freeze  > requirements.txt" in the terminal. This will modify the requirements.txt file to allow Heroku to install these dependencies as well.
+- Log in to Heroku or create an account if required.
+- Click the button labelled "New" from the dashboard in the top right corner  
+- From the drop-down menu select "Create new app".
+- Enter a unique app name. The name must be unique across all of Heroku, not just unique to your own account.
+- Once the green tick is displayed to confirm the name is original, select your region.
+- Click on the "Create app" button.
+- This will bring you to the project "Deploy" tab. From here, navigate to the settings tab and scroll down to the "Config Vars" section.
+- Click the button labelled "Reveal Config Vars" and enter the "key" as port, the "value" as 8000 and click the "add" button.
+- For projects such as this where a creds.json file is used, the Config Vars must also be updated to take account of this file, since it cannot be shared via GitHub because it was never uploaded to GitHub.
+- In the field for "key", enter CREDS.
+- Copy the entire creds.json file from the workspace and then paste it into the "value" and click the "add" button.
+- Go to the "buildpacks" section of the settings page and click the button labeled "add buildpack," select "python," and click "Save Changes".
+- Repeat the above step, but this time add "node.js" instead of python. Note that the buildpacks must be in the correct order. They can be dragged into the correct position if needed.
+- At the top of the settings page, and navigate to the "Deploy" tab.
+- Select Github as the deployment method.
+- Confirm that you want to connect to GitHub.
+- Search for the repository name as it is saved on GitHub, and click the "connect" button next to the correct repository.
+- At the bottom of the deploy page, select your "Enable Automatic Deploys" if you would like updates to be deployed automatically when you push updates to Github.
+- Alternatively, click the "Deploy Branch" button to deploy updates manually. This would then need to be updated manually with any further changes.
+- Click "view" to view the deployed site.
