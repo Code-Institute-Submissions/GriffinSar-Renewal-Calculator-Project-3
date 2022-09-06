@@ -70,7 +70,7 @@ def save_details():
             first_page()
             break
         else:
-            console.print("Invalid input, please try again.\n", style="red",
+            console.print("Invalid input, please try again.\n", style="bright_red",
                           justify="center")
 
 
@@ -109,7 +109,8 @@ def multi(vue):
         time.sleep(2)
         first_page()
     else:
-        print("invalid input")
+        console = Console()
+        console.print("invalid input", style="bright_red", justify="center")
         multi(vue)
 
 
@@ -156,9 +157,9 @@ def pricing_oi(product, support, cust_name):
             first_page()
     except ValueError:
         console.print("The values you have entered are not in",
-                      style="red", justify="center")
+                      style="bright_red", justify="center")
         console.print("the correct format, please try again",
-                      style="red", justify="center")
+                      style="bright_red", justify="center")
         pricing_oi(product, support, cust_name)
 
         while True:
@@ -226,15 +227,15 @@ def pricing_kace(product, support, cust_name):
         else:
             console.print("Your quote has reached list price no uplift\n",
                           style="red", justify="center")
-            console.print ("Directing to home page", style="red",
+            console.print ("Directing to home page", style="bright_red",
                            justify="center")
             time.sleep(2)
             first_page()
     except ValueError:
         console.print("The values you have entered are not in",
-                      style="red", justify="center")
+                      style="bright_red", justify="center")
         console.print("the correct format, please try again",
-                      style="red", justify="center")
+                      style="bright_red", justify="center")
         pricing_kace(product, support, cust_name)
 
         while True:
@@ -301,16 +302,16 @@ def pricing_toad(product, support, cust_name):
             multi(cost)
         else:
             console.print("Your quote has reached list price no uplift\n",
-                          style="red", justify="center")
-            console.print ("Directing to home page", style="red",
+                          style="bright_red", justify="center")
+            console.print ("Directing to home page", style="bright_white",
                            justify="center")
             time.sleep(2)
             first_page()
     except ValueError:
         console.print("The values you have entered are not in",
-                      style="red", justify="center")
+                      style="bright_red", justify="center")
         console.print("the correct format, please try again",
-                      style="red", justify="center")
+                      style="bright_red", justify="center")
         pricing_toad(product, support, cust_name)
 
         while True:
