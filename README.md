@@ -131,6 +131,13 @@ The user can enter the customer  name and any saved details for this customer wi
 
  ![saved](assets/images/saved%20details.png)
 
+ ### Note on Features
+
+ - I have chosen to store all input from the user as lower case. This way when they user is accessing their saved details if they used capital letters or not wont matter, it will convert their input to lower case and match the name to the saved lower case details in the google sheet.
+
+ - When the user enters details, if their details are accepted by the program a message will be printed in yellow telling the user it has been accepted. This is good for the user as it lets them know that what they have entered is accepted and the program is running as expected.
+
+
  ### Features Left to Implement
 Currency converter. I hope in future to implement a currency converter as part of this renewal calculator.
 
@@ -172,3 +179,51 @@ To the best of my knowledge there are no bugs currently in this program.
 - I was encountering a bug when the user entered anything that wasnt a number. It was causing the program to crash. I implemented a try except block. This handled the exception if the user enters something that isnt a number and instead of crashing the program prints and error and directs the user back to the start of the function.
 
 # Deployment
+
+### Gitpod and GitHub
+The Code Institute Python Essentials Template on GitHub was used to develop this project. This template was designed by Code Institute to provide a terminal that can be viewed in the browser.
+
+Steps:
+
+From the link above, click "use this template". You will be taken to a screen to create a new repository from this template.
+Give your repository a name.
+Click "create repository from template" and your repository will be created.
+In the new repository, click the green "Gitpod" button to open the workspace in Gitpod.
+
+### Google Sheets
+
+You must generate credential and provide them to your program to allow your project to access Google Sheets.
+
+Steps to generate the credentials:
+
+- Navigate to the Google Cloud Platform
+- Click "select a project".
+- Click "new project".
+- Give the project a name.
+- Click "create".
+- From the project's dashboard, select 'APIs and services' and then 'Library'.
+- Search for Google Drive API and enable it.
+- Select "create credentials".
+- From the "Which API are you using?" dropdown menu, choose "Google Drive API".
+- For the "What data will you be accessing?" question, select "Application Data".
+- For the "Are you planning to use this API with Compute Engine, Kubernetes Engine, App Engine, or Cloud Functions?" question, select "No, I'm not using them".
+- Enter a Service Account name.
+- In the Role Dropdown box choose Basic > Editor then press Continue.
+- Click "Done".
+- On the next page, click on the Service Account that has been created.
+- On the next page, click on the Keys tab.
+- Click on the Add Key dropdown and select Create New Key
+- Select JSON and then click Create. This will trigger the json file with your API credentials in it to download to your machine.
+
+Steps to allow the program access using the credentials:
+
+- Drag and drop the downloaded json file containing the credentials into your Gitpod workspace.
+- Rename the file to creds.json for ease of use.
+- In the creds.json file, find the "client_email" value and copy the email address (without the surrounding quotes).
+- In the Google Sheet, click the green "share" button in the top right.
+- Paste in the email, make sure "Editor" is selected, untick "Notify People", and then click "Share".
+
+Steps to ensure that the credentials file is stored securely and details are not shared with GitHub:
+
+- Open the "gitignore" file in Gitpod.
+- Add "creds.json" (without the quotes) to the gitignore file and save the file.

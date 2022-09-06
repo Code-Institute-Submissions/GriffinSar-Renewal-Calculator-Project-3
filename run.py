@@ -56,11 +56,14 @@ def save_details():
             list_details = [
                 cust_name, type, level, cost, second_year, third_year
             ]
-            print("Saving your details...\n")
+            console = Console()
+            console.print("Saving your details...\n", style="bright_yellow", justify="center")
+            time.sleep(1)
             database = SHEET.worksheet('database')
             database.append_row(list_details)
-            print("Your details have been saved to the database.\n")
-            print("\nTaking you to the main page...")
+            console.print("Your details have been saved to the database.", style="bright_white", justify="center")
+            console.print("\nTaking you to the main menu...", style="bright_white", justify="center")
+            time.sleep(2)
             first_page()
             break
         elif save == "x":
@@ -79,7 +82,8 @@ def multi(vue):
 
     print("Would you like pricing for the second and third year? type Y/N")
     multi_year = input(Fore.GREEN + Style.BRIGHT + "Y/N:\n")
-    if multi_year == "Y":
+    multi_year = multi_year.lower()
+    if multi_year == "y":
         global second_year
         second_year = vue / 100 * 90
         global third_year
@@ -98,12 +102,15 @@ def multi(vue):
 
         save_details()
 
-    elif multi_year == "N":
-        print(Fore.CYAN + Style.BRIGHT + "Directing to home page")
+    elif multi_year == "n":
+        console = Console()
+        console.print("Returning to the main menu...\n\n\n",
+                      style="bright_white bold", justify="center")
         time.sleep(2)
         first_page()
     else:
         print("invalid input")
+        multi(vue)
 
 
 def pricing_oi(product, support, cust_name):
@@ -356,7 +363,8 @@ def new_customer():
         console.print("Customer name accepted",
                       style="bright_yellow", justify="center")
     else:
-        console.print("Not accepted try again", style="bold bright_red")
+        console.print("Not a valid input try again",
+                      style="bold bright_red", justify="center")
         new_customer()
 
     console.print("Please enter your product: Toad, Kace or OI",
@@ -370,8 +378,8 @@ def new_customer():
         console.print("Product accepted",
                       style="bright_yellow", justify="center")
     else:
-        print(Fore.LIGHTYELLOW_EX +
-              "The product is not valid,please try again.")
+        console.print("The product is not valid,please try again.",
+                      style="bold bright_red", justify="center")
         new_customer()
 
     console.print("Please enter the support level of your quote\
@@ -384,8 +392,8 @@ def new_customer():
         console.print("Support level accepted",
                       style="bright_yellow", justify="center")
     else:
-        print(Fore.LIGHTYELLOW_EX +
-              "The support level is not valid,please try again.")
+        console.print("The support level is not valid,please try again.",
+                      style="bold bright_red", justify="center")
         new_customer()
 
     if type == "toad":
@@ -395,7 +403,8 @@ def new_customer():
     elif type == "oi":
         pricing_oi(type, level, cust_name)
     else:
-        print(Fore.LIGHTYELLOW_EX + "Invalid input, please try again.\n")
+        print("Invalid input, please try again.\n",
+              style="bold bright_red", justify="center")
         new_customer()
 
 
