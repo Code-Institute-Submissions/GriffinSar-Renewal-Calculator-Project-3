@@ -22,8 +22,7 @@
 - [Deployment](#deployment)
 - [Credits](#credits)
     - [Content](#content)
-    - [Media](#media)
-    - [Code](#code)
+    - [References](#references)
     - [Technologies](#technologies)
 - [Acknowledgements](#acknowledgements)
 - [Disclaimer](#disclaimer)
@@ -31,10 +30,15 @@
 
 # Sales Calculator
 
-### Purpose
+
+## Purpose
 The purpose of this site is to provide the user with pricing for their renewal quotes. It has specifically created for renewal representitives who work for Quest Software. They input some details: the price, level and product and the system will provide them with the new pricing for this years quote. They can also choose to get the pricing for a 2 year and 3 year quote so they can easily provide all options to the customer.
 This program also stores the customer data so that the user can access previous quote prices for their reference. 
 The purpose of this site is to streamline the renewal process for these sales representitives. Many of thier quotes need to be manually priced so this site can help them to work out the pricing of a quote in a more efficient way.
+
+The program is written using Python, runs in a Command Line Interface and is deployed via Heroku. You can visit the live website [here](https://renewal-calculator-p3.herokuapp.com/)
+
+![RenewalCalculator](assets/images/renewal-calc.png)
 
 # Target Audience
 The Target Audience for this website is sales reps specifically the sales reps who work for my current employer Quest software. These reps have a number of manual calculatitons that needs to be done to prepare a quote for their customer, this has to be done for thousands of quotes every three months. Part of my role in the past was to price these quotes for the reps. There is a definate need here for something that makes the process easier and more streamlined. This app is designed to take away some of this manual work so that the sales rep can concentrate on selling the products to the customer rather than focusing so much time on administration work.
@@ -42,17 +46,17 @@ This is the sort of functionality that many CRM systems implement to streamline 
 
 # User Stories
 
-### First Time Visitor Goals
+## First Time Visitor Goals
 As a first time visitor I want to be able to choose what product I am working with and the support level so I can get an accurate calculation for my renewal quote. 
 I also wants to be able to get the price for a 2 or 3 year renewal so I can present the three options to my customer.
 I want to be able to input the customer name and spcific data of this quote and have it stored by the system in a google sheet so I can access this data again at a later stage. 
 As a first time visitor (Or Returning/ Frequent) I want the program to be simple and easy to use. 
 As a first time visitor (Or Returning/ Frequent) I want the system to work even if I input the wrong type of data.
 
-### Returning Visitor Goals
+## Returning Visitor Goals
 A returning visitor wants to be able to use the app to price a quote just as the first time visitor. But this user also wants to be able to access previous quote data for users so they can see a list of previous priced quotes for this customer.
 
-### Frequent Visitor Goals
+## Frequent Visitor Goals
 A frequent Visitor wants to be able to price new quotes and also get previous pricing for a specific customer if there is any.
 
 # Owner Goals
@@ -64,7 +68,7 @@ A frequent Visitor wants to be able to price new quotes and also get previous pr
 
 # Design
 
-### Colour scheme
+## Colour scheme
 
 As this is a terminal based application the level of detail for colour in page are a little limited. 
 I have imported colours from the Python library colorama and also the Python Libary Rich. I have tried to use the colours consistently throughout the program.
@@ -73,7 +77,7 @@ I have imported colours from the Python library colorama and also the Python Lib
 - Yellow - confirmation messages to the user are yellow
 - Red - Error Messages are in Red, this colour is used as Red would be familiar to the user as the colour commonly used for an error.
 
-### Imagery
+## Imagery
 
 I have used an image of a calculator, it is just a simple image but draws the users eye. It also helps to make the purpose of the site clear right from the initial page.
 
@@ -94,14 +98,20 @@ They are then prompted to enter which option they would like to go for by inputt
 ![intro](assets/images/intro-page.png)
 
 ### New Calculation
-If the user selects to start a new calculation they are then prompted to enter their customer's name. There is a message outlining the format the customer name must take. If the customer name fits the convention then a message is printed telling the user that the customer name is accepted. If the user enters a format that is not accepted they will recieve and error message telling them the name they have entered is not valid and they will be prompted to re-enter the user name. 
+If the user selects to start a new calculation they are then prompted to enter their customer's name. There is a message outlining the format the customer name must take. If the customer name fits the convention then a message is printed telling the user that the customer name is accepted. If the user enters a format that is not accepted they will recieve and error message telling them the name they have entered is not valid and they will be prompted to re-enter the user name.
+
+![EnterName](assets/images/enter-name.png)
 
 ### Product Select
 Once the user has entered a customer name that is accepted by the system they will then be prompted to select the product their quote is for, either Toad or Kace. 
-If the enter anything other than Toad or Kace they will get an error stating Invalid input and they will be prompted to try again. 
+If the enter anything other than Toad or Kace they will get an error stating Invalid input and they will be prompted to try again.
+
+![ProductSelect](assets/images/product-select.png)
 
 ### Level Select
  Once they have entered the amount the user is then asked to select the level of support on the quote, is it standard, mid or premier. The product type and support level determine the pricing that is applied to the quote.
+
+![LevelSelect](assets/images/support-level.png)
 
 ### Enter Amount
 The user is then prompted to enter the amount for last years renewal quote.
@@ -136,6 +146,10 @@ The user can enter the customer  name and any saved details for this customer wi
  - I have chosen to store all input from the user as lower case. This way when they user is accessing their saved details if they used capital letters or not wont matter, it will convert their input to lower case and match the name to the saved lower case details in the google sheet.
 
  - When the user enters details, if their details are accepted by the program a message will be printed in yellow telling the user it has been accepted. This is good for the user as it lets them know that what they have entered is accepted and the program is running as expected.
+
+ - A google sheet is used to store the details entered by the user when they choose to save them. It also holds the pricebook that the program checks to make sure the users input is not above the list price and so can be uplifted. You can see an example of how the data is saved below:
+
+![GoogleSheet](assets/images/app-test.png)
 
 
  ### Features Left to Implement
@@ -190,17 +204,19 @@ To the best of my knowledge there are no bugs currently in this program.
 
 # Deployment
 
-### Gitpod and GitHub
+## Gitpod and GitHub
+
 The Code Institute Python Essentials Template on GitHub was used to develop this project. This template was designed by Code Institute to provide a terminal that can be viewed in the browser.
+This is the link to the template :
+https://github.com/Code-Institute-Org/python-essentials-template
 
-Steps:
+Steps to use the template:
+- From the link above, click "use this template". You will be taken to a screen to create a new repository from this template.
+- Give your repository a name.
+- Click "create repository from template" and your repository will be created.
+- In the new repository, click the green "Gitpod" button to open the workspace in Gitpod.
 
-From the link above, click "use this template". You will be taken to a screen to create a new repository from this template.
-Give your repository a name.
-Click "create repository from template" and your repository will be created.
-In the new repository, click the green "Gitpod" button to open the workspace in Gitpod.
-
-### Google Sheets
+## Google Sheets
 
 You must generate credential and provide them to your program to allow your project to access Google Sheets.
 
@@ -238,7 +254,7 @@ Steps to ensure that the credentials file is stored securely and details are not
 - Open the "gitignore" file in Gitpod.
 - Add "creds.json" (without the quotes) to the gitignore file and save the file.
 
-### Heroku
+## Heroku
 
 - Before using Heroku, create a list of any dependencies that have been installed in your workspace by using the command "pip3 freeze  > requirements.txt" in the terminal. This will modify the requirements.txt file to allow Heroku to install these dependencies as well.
 - Log in to Heroku or create an account if required.
@@ -261,3 +277,41 @@ Steps to ensure that the credentials file is stored securely and details are not
 - At the bottom of the deploy page, select your "Enable Automatic Deploys" if you would like updates to be deployed automatically when you push updates to Github.
 - Alternatively, click the "Deploy Branch" button to deploy updates manually. This would then need to be updated manually with any further changes.
 - Click "view" to view the deployed site.
+
+# Credits
+
+### Content
+
+- All text used throughout the site was written by me.
+- I have taken my pricing model from the company I work for - Quest Software. I have added some complexity to the pricing model just to create a more interesting and challenging app. But the idea of an uplift and the discounted second and third year price I have modeled on the pricing rules they I work with every day.
+
+### References
+
+- I  made extensive use of the Love Sandwiches tutorials on Code Institute when creating this project, it was a starting point and helped me in my understanding of how to manipulate data in a google sheet. 
+
+- I used this video series linked in the Rich git hub repsoitory to help my understanding of how to use rich - https://calmcode.io/rich/introduction.html
+
+- I watched this tutorial to help with my understanding of how the use Pandas with Python - https://www.youtube.com/watch?v=vmEHCJofslg
+
+
+### Technologies
+- Gitpod is an online integrated development environment that was used to write my code.
+- Git was used for version control by committing changes via Gitpod. Changes are then stored by pushing them to GitHub.
+- GitHub was used to store the project code after pushing it from Git.
+- Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud, and was used to deploy the live project.
+- The Code Institute Python Essentials Template on GitHub was used to develop this project.
+- https://www.asciiart.eu/electronics/calculators - I got the image of a calculator from this site. I modified it slightly to show correctly in the terminal.
+- Google sheets - Used to store the user data and also the price list.
+- Pandas - I used Pandas for manipulation the data from the google sheet.
+- Colorama https://pypi.org/project/colorama/  - I used Colorama specifically for the input fields as I was getting an error when trying to use the RICH API for the input.
+- https://realpython.com/python-exceptions/ - I referenced this site for my exception handling.
+- https://peps.python.org/pep-0008/ - I referenced PEP8 to confirm my styling was correct.
+- https://github.com/Textualize/rich - I used rich to add colour to text and also for positioning of the calculator image. I also used the Rich api for generating the tables in the app.
+- Time api -I used this API to have the app pause at times so the user can read any messages being displayed.
+
+# Acknowledgements
+- Thank you to my mentor Ronan McClelland for all his support and advice.
+- Thanks to my husband and children who are so supportive of my learning journey with Code Institue. 
+
+# Disclaimer
+This website is for educational use only.
