@@ -35,7 +35,7 @@
 ## Purpose
 The purpose of this site is to provide the user with pricing for their renewal quotes, this involves uplifting a price the user inputs. It has been specifically created for renewal representitives who work for Quest Software. They input some details: the price, level and product and the system will provide them with the new pricing for this years quote. They can also choose to get the pricing for a 2 year and 3 year quote so they can easily provide all options to the customer.
 This program also stores the customer data so that the user can access previous quote prices for their reference. 
-The purpose of this site is to streamline the renewal process for these sales representitives. Many of their quotes need to be manually priced so this site can help them to work out the pricing of a quote in a more efficient way. My hope in making this program was to find a way to simplify a proces for this team using my knowledge of Python.
+The purpose of this site is to streamline the renewal process for these sales representitives. Many of their quotes need to be manually priced so this site can help them to work out the pricing of a quote in a more efficient way. My hope in making this program was to find a way to simplify a procces for this team using my knowledge of Python.
 I also believe that this is a framework that could be used for many renewal businesses. Most technology companies price their renewals in a similar way. Applying a standard uplift year on year, and giving a discount for bulk buying (Eg. buying the 2 year or 3 year quote). While the calculations in this quote are specific for Quest it could easily be updated to work for another company, by just updating the products and the uplift percentage for example.
 
 The program is written using Python, runs in a Command Line Interface and is deployed via Heroku. You can visit the live website [here](https://renewal-calculator-p3.herokuapp.com/)
@@ -94,7 +94,7 @@ I have used an image of a calculator, it is just a simple image but draws the us
 ## Existing Features
 
 ### Into Page
-When the program loads the user is Greated with text welcoming them to the Renewal Calculator and an image of a calculator. There is a description of what the program does. It then gives the user two options they can either choose to start a new calculation or they can get access to historical data for their customer. 
+When the program loads the user is Greeted with text welcoming them to the Renewal Calculator and an image of a calculator. There is a description of what the program does. It then gives the user two options they can either choose to start a new calculation or they can get access to historical data for their customer. 
 They are then prompted to enter which option they would like to go for by inputting 1 for new calculation or 2 for historical data.
 
 ![intro](assets/images/intro-page.png)
@@ -133,7 +133,7 @@ The program then checks the price the user has entered against a price book I ha
 
 ### Second and Third Year Calculation 
 
-The user can also have the system calculate the price for a second and third year. This is calculated at 90% of the 1 year price for the second year and 85% of the one year price for the third year. This is following the pricing guidelines that the reps in my company follow, the discount is applied to incentivies customers to renew for more than one year. So this calculator quickly presents the pricing for all three years.
+The user can also have the system calculate the price for a second and third year. This is calculated at 90% of the one year price for the second year and 85% of the one year price for the third year. This is following the pricing guidelines that the reps in my company follow, the discount is applied to incentivise customers to renew for more than one year. So this calculator quickly presents the pricing for all three years.
 
  ![ppm](assets/images/ppm-feature.png)
 
@@ -141,13 +141,13 @@ The user can also have the system calculate the price for a second and third yea
 The usesr is then prompted to either save their details or exit. If they choose the save the details are saved to a google sheet. They can then be accessed by the user at a later date by entering the customer name.
 
 ### Access stored data
-The user can enter the customer  name and any saved details for this customer will be printed to the terminal. It gives the customer name, product, supporot level and the pricing for One, Two and three years. 
+The user can enter the customer  name and any saved details for this customer will be printed to the terminal. It gives the customer name, product, support level and the pricing for One, Two and three years. 
 
  ![saved](assets/images/saved%20details.png)
 
  ### Note on Features
 
- - I have chosen to store all input from the user as lower case. This way when they user is accessing their saved details if they used capital letters or not wont matter, it will convert their input to lower case and match the name to the saved lower case details in the google sheet.
+ - I have chosen to store all input from the user as lower case. This way when they user is accessing their saved details if they used capital letters or not won't matter, it will convert their input to lower case and match the name to the saved lower case details in the google sheet.
 
  - When the user enters details, if their details are accepted by the program a message will be printed in yellow telling the user it has been accepted. This is good for the user as it lets them know that what they have entered is accepted and the program is running as expected.
 
@@ -161,27 +161,27 @@ Currency converter. I hope in future to implement a currency converter as part o
 # API
 
 ### Rich
-I used the Rich API extensively throughout this project. I had originally just used Colorama but after my mentor mentioned Rich as something that he regularly uses I decided to try it out. I found it great I used it to add colour to the test in the program. This  helped to differentiate errors and instructions. It also just adds a bit of interest for the user as this is a terminal based app it was nice to be able to add a bit of decoration to keep the user interested and engaged. 
+I used the Rich API extensively throughout this project. I had originally just used Colorama but after my mentor mentioned Rich as something that he regularly uses I decided to try it out. I found it great I used it to add colour to the test in the program. This  helped to differentiate errors and instructions. It also just adds a bit of interest for the user. As this is a terminal based app it was nice to be able to add a bit of decoration to keep the user interested and engaged. 
 I also used Rich to add the tables for the pricing. This worked really well and I was very happy with the look that these tables gave to the app. It helps the output really stand out for the user.
 Rich was also used to position text and the calculator image on the screen. I have position the calculator and the text on the first page to the center of the page as I think this gives a nice visual effect. All error messages and confirmation messages are centered as well to draw the users attention. 
 
-# Colorama
+### Colorama
 Colorama was used to set the colour for the input fields. All input fields are set as green for consistency. I had wanted to use Rich but found I was getting an error when I tried to use it on the input field so I stayed with Colorama for this. 
 
-# Pandas
-Pandas is an open source data analysis and manipulation tool, built on top of the Python programming language. Pandas is used to display the saved data for the user in this app. It makes it clear and easy for the user to understand. This is done by retieving the saved data and displays it in colums with headings of : username, product, product level, uplift, year two and year three. 
+#### Pandas
+Pandas is an open source data analysis and manipulation tool, built on top of the Python programming language. Pandas is used to display the saved data for the user in this app. It makes it clear and easy for the user to understand. This is done by retieving the saved data and displays it in columns with headings of : username, product, product level, uplift, year two and year three. 
 
-# gspread
+#### Gspread
 Gspread is a Python API for Google Sheets. It allows the app to access and modify data in the google sheets doc. Gspread is used to add the data that the user inputs into the google sheet if they choose to save it. They can then access the data at a later date.
 
-# Time
-Time is used to put pauses in the flow of the data in the terminal. I found that the messages were printing and then it was moving to the next function too quickly, the customer would not have time to read what was printed. I have used it to put a slight delay in places to give the user the time to read. It also is used in places to slow the flow down such as when saving data, while this is done automatically it gives a better user experience as it gives the impression that the system is taking the time to save. While we know this is not necessary from our knowledge of programming, I believe that this pause gives the user the comfort that the system really is doing something, be it saving or exiting a function.
+### Time
+Time is used to put pauses in the flow of the data in the terminal. I found that the messages were printing and then it was moving to the next function too quickly. The customer would not have time to read what was printed. I have used it to put a slight delay in places to give the user the time to read. It also is used in places to slow the flow down such as when saving data, while this is done automatically it gives a better user experience as it gives the impression that the system is taking the time to save. While we know this is not necessary from our knowledge of programming, I believe that this pause gives the user the comfort that the system really is doing something, be it saving or exiting a function.
 
 
 # Testing
 
 ## Calculation Testing
-The first thing I tested was that the calculations done in the app were actually correct. I built a calculator in Google sheets and gave the input of 30 euro for each support level and type to check what the output was. I then did the same in the app. I input 30 for each of the types and support level and saved each to the google sheets. All the prices for the uplift and the two and three years matched my google sheet calculation so I knew it was working correctly.
+The first thing I tested was that the calculations done in the app were actually correct. I built a calculator in Google sheets and gave the input of 30 euro for each support level and type to check what the output was. I then did the same in the app. I input 30 for each of the types and support levels and saved each to the google sheets. All the prices for the uplift and the two and three years matched my google sheet calculation so I knew it was working correctly.
 
 As you can see in the two images below the output is the same from the google sheets and the app itself. 
 
@@ -207,7 +207,7 @@ The Python code was run through the PEP8 online:
 
 I initially obtained a large amount of "unexpected space around keyword/parameters equals" errors. I had not realised that I should not put a space between the word style and the equal sign and the parameter when using Rich. I removed these spaces across the program and this resolved most of the errors. 
 
-I also recieved some errors for lines being to long. So I spent time making sure that my lines were not longer than 80 characters and that follow on lines were properly indented. 
+I also recieved some errors for lines being too long. So I spent time making sure that my lines were not longer than 80 characters and that follow on lines were properly indented. 
 
 Once I fixed these issues the code then passed successfully.
 
@@ -223,7 +223,7 @@ To the best of my knowledge there are no bugs currently in this program.
 
 - I had an issue when the user went through the new calculation function and went back to the main page. When they went back to the start page and selected to exit the calculator, it wouldn't exit but instead displayed the menu from the save function. I realised I needed to enter break points so that this part of the save function would not keep running when the user exited to the home page. Once I entered them it fixed this bug.
 
-- I was encountering a bug when the user entered anything that wasn't a number in each of the pricing functions. It was causing the program to crash. I implemented a try except block. This handled the exception if the user enters something that isnt a number and instead of crashing the program prints an error messageg and directs the user back to the start of the function.
+- I was encountering a bug when the user entered anything that wasn't a number in each of the pricing functions. It was causing the program to crash. I implemented a try except block. This handled the exception if the user enters something that isnt a number and instead of crashing the program prints an error message and directs the user back to the start of the function.
 
 # Deployment
 
@@ -306,7 +306,7 @@ Steps to ensure that the credentials file is stored securely and details are not
 ### Content
 
 - All text used throughout the site was written by me.
-- I have taken my pricing model from the company I work for - Quest Software. I have added some complexity to the pricing model just to create a more interesting and challenging app. But the idea of an uplift and the discounted second and third year price I have modeled on the pricing rules thet I work with every day.
+- I have taken my pricing model from the company I work for - Quest Software. I have added some complexity to the pricing model just to create a more interesting and challenging app. But the idea of an uplift and the discounted second and third year price I have modeled on the pricing rules that I work with every day.
 
 ### References
 
