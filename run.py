@@ -46,7 +46,7 @@ def save_details():
     while True:
         console = Console()
         console.print("Would you like to save these details?\n",
-                      style="bright_green", justify="center")
+                      style="bright_white bold")
         print("Type 's' to save these details for future use.")
         print("Type 'x' to return to the main menu.")
         save = input(Fore.GREEN + Style.BRIGHT +

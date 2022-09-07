@@ -103,13 +103,15 @@ If the user selects to start a new calculation they are then prompted to enter t
 ![EnterName](assets/images/enter-name.png)
 
 ### Product Select
-Once the user has entered a customer name that is accepted by the system they will then be prompted to select the product their quote is for, either Toad or Kace. 
-If the enter anything other than Toad or Kace they will get an error stating Invalid input and they will be prompted to try again.
+Once the user has entered a customer name that is accepted by the system they will then be prompted to select the product their quote is for, either Toad, Kace or OI. 
+If they enter anything other than Toad or Kace they will get an error stating Invalid input and they will be prompted to try again.
 
 ![ProductSelect](assets/images/product-select.png)
 
 ### Level Select
- Once they have entered the amount the user is then asked to select the level of support on the quote, is it standard, mid or premier. The product type and support level determine the pricing that is applied to the quote.
+ Once they have entered the product the user is then asked to select the level of support on the quote, is it standard, mid or premier. The product type and support level determine the pricing that is applied to the quote. The pricing uplift for each product and level is set out in the image below.
+
+![PricingUplift](assets/images/uplift.png)
 
 ![LevelSelect](assets/images/support-level.png)
 
