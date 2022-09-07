@@ -14,6 +14,7 @@
 - [Features](#features)
     - [Existing-Features](#existing-features)
     - [Features-left-to-Implement](#features-left-to-implement)
+- [API](#api)
 - [Testing](#testing)
     - [Calculation-Testing](#calculation-testing)
     - [Manual-Testing](#manual-testing)
@@ -32,32 +33,32 @@
 
 
 ## Purpose
-The purpose of this site is to provide the user with pricing for their renewal quotes. It has specifically created for renewal representitives who work for Quest Software. They input some details: the price, level and product and the system will provide them with the new pricing for this years quote. They can also choose to get the pricing for a 2 year and 3 year quote so they can easily provide all options to the customer.
+The purpose of this site is to provide the user with pricing for their renewal quotes, this involves uplifting a price the user inputs. It has been specifically created for renewal representitives who work for Quest Software. They input some details: the price, level and product and the system will provide them with the new pricing for this years quote. They can also choose to get the pricing for a 2 year and 3 year quote so they can easily provide all options to the customer.
 This program also stores the customer data so that the user can access previous quote prices for their reference. 
-The purpose of this site is to streamline the renewal process for these sales representitives. Many of thier quotes need to be manually priced so this site can help them to work out the pricing of a quote in a more efficient way.
+The purpose of this site is to streamline the renewal process for these sales representitives. Many of their quotes need to be manually priced so this site can help them to work out the pricing of a quote in a more efficient way. My hope in making this program was to find a way to simplify a proces for this team using my knowledge of Python.
 
 The program is written using Python, runs in a Command Line Interface and is deployed via Heroku. You can visit the live website [here](https://renewal-calculator-p3.herokuapp.com/)
 
 ![RenewalCalculator](assets/images/renewal-calc.png)
 
 # Target Audience
-The Target Audience for this website is sales reps specifically the sales reps who work for my current employer Quest software. These reps have a number of manual calculatitons that needs to be done to prepare a quote for their customer, this has to be done for thousands of quotes every three months. Part of my role in the past was to price these quotes for the reps. There is a definate need here for something that makes the process easier and more streamlined. This app is designed to take away some of this manual work so that the sales rep can concentrate on selling the products to the customer rather than focusing so much time on administration work.
-This is the sort of functionality that many CRM systems implement to streamline quoting for customers. 
+The Target Audience for this website is sales reps, specifically the sales reps who work for my current employer Quest software. These reps have a number of manual calculatitons that needs to be done to prepare a quote for their customer, this has to be done for thousands of quotes every three months. Part of my role in the past was to manually price these quotes for the reps so I am aware of how time consuming this task can be. There is a definate need here for something that makes the process easier and more streamlined. This app is designed to take away some of this manual work so that the sales rep can concentrate on selling the products to the customer rather than focusing so much time on administration work.
+This is the sort of functionality that many CRM systems implement to streamline quoting for businesses. 
 
 # User Stories
 
 ## First Time Visitor Goals
-As a first time visitor I want to be able to choose what product I am working with and the support level so I can get an accurate calculation for my renewal quote. 
-I also wants to be able to get the price for a 2 or 3 year renewal so I can present the three options to my customer.
-I want to be able to input the customer name and spcific data of this quote and have it stored by the system in a google sheet so I can access this data again at a later stage. 
-As a first time visitor (Or Returning/ Frequent) I want the program to be simple and easy to use. 
-As a first time visitor (Or Returning/ Frequent) I want the system to work even if I input the wrong type of data.
+- As a first time visitor I want to be able to choose what product I am working with and the support level so I can get an accurate calculation for my renewal quote. 
+- I also wants to be able to get the price for a 2 or 3 year renewal so I can present the three options to my customer.
+- I want to be able to input the customer name and spcific data of this quote and have it stored by the system in a google sheet so I can access this data again at a later stage. 
+- As a first time visitor (Or Returning/ Frequent) I want the program to be simple and easy to use. 
+- As a first time visitor (Or Returning/ Frequent) I want the system to work even if I input the wrong type of data.
 
 ## Returning Visitor Goals
-A returning visitor wants to be able to use the app to price a quote just as the first time visitor. But this user also wants to be able to access previous quote data for users so they can see a list of previous priced quotes for this customer.
+- A returning visitor wants to be able to use the app to price a quote just as the first time visitor. But this user also wants to be able to access previous quote data for users so they can see a list of previous priced quotes for this customer.
 
 ## Frequent Visitor Goals
-A frequent Visitor wants to be able to price new quotes and also get previous pricing for a specific customer if there is any.
+- A frequent Visitor wants to be able to price new quotes and also get previous pricing for a specific customer if there is any.
 
 # Owner Goals
 - As the owner, I want to provide a program that fulfils the users’ needs.
@@ -153,21 +154,40 @@ The user can enter the customer  name and any saved details for this customer wi
 
 ![GoogleSheet](assets/images/app-test.png)
 
-
  ### Features Left to Implement
 Currency converter. I hope in future to implement a currency converter as part of this renewal calculator.
 
+# API
+
+### Rich
+I used the Rich API extensively throughout this project. I had originally just used Colorama but after my mentor mentioned Rich as something that he regularly uses I decided to try it out. I found it great I used it to add colour to the test in the program. This  helped to differentiate errors and instructions. It also just adds a bit of interest for the user as this is a terminal based app it was nice to be able to add a bit of decoration to keep the user interested and engaged. 
+I also used Rich to add the tables for the pricing. This worked really well and I was very happy with the look that these tables gave to the app. It helps the output really stand out for the user.
+Rich was also used to position text and the calculator image on the screen. I have position the calculator and the text on the first page to the center of the page as I think this gives a nice visual effect. All error messages and confirmation messages are centered as well to draw the users attention. 
+
+# Colorama
+Colorama was used to set the colour for the input fields. All input fields are set as green for consistency. I had wanted to use Rich but found I was getting an error when I tried to use it on the input field so I stayed with Colorama for this. 
+
+# Pandas
+Pandas is an open source data analysis and manipulation tool, built on top of the Python programming language. Pandas is used to display the saved data for the user in this app. It makes it clear and easy for the user to understand. This is done by retieving the saved data and displays it in colums with headings of : username, product, product level, uplift, year two and year three. 
+
+# gspread
+Gspread is a Python API for Google Sheets. It allows the app to access and modify data in the google sheets doc. Gspread is used to add the data that the user inputs into the google sheet if they choose to save it. They can then access the data at a later date.
+
+# Time
+Time is used to put pauses in the flow of the data in the terminal. I found that the messages were printing and then it was moving to the next function too quickly, the customer would not have time to read what was printed. I have used it to put a slight delay in places to give the user the time to read. It also is used in places to slow the flow down such as when saving data, while this is done automatically it gives a better user experience as it gives the impression that the system is taking the time to save. While we know this is not necessary from our knowledge of programming, I believe that this pause gives the user the comfort that the system really is doing something, be it saving or exiting a function.
+
+
 # Testing
 
-### Calculation Testing
-The first thing I tested was that the calculations done in the app were actually correct. I built a calculator in Google sheets and gave the input of 30 euro for each support level and type to check what the output was. I then did the same in the calculator I input 30 for each of the types and support level and saved each to the google sheets. All the prices for the uplift and the two and three years matched my google sheet calculation so I know it was working correctly.
+## Calculation Testing
+The first thing I tested was that the calculations done in the app were actually correct. I built a calculator in Google sheets and gave the input of 30 euro for each support level and type to check what the output was. I then did the same in the app. I input 30 for each of the types and support level and saved each to the google sheets. All the prices for the uplift and the two and three years matched my google sheet calculation so I knew it was working correctly.
 
 As you can see in the two images below the output is the same from the google sheets and the app itself. 
 
 ![GoogleSheetsTest](assets/images/google-sheets-test.png)
 ![AppSavedData](assets/images/app-test.png)
 
-### Manual Testing
+## Manual Testing
 
 When the program had been successfully deployed to Heroku, I followed the logic flow through all the user actions that can be taken in the app to check that it responded appropriately:
 
@@ -179,12 +199,12 @@ When the program had been successfully deployed to Heroku, I followed the logic 
 ![MultiSave](assets/images/multi-save-test.png)
 
 
-### Validator Testing
+## Validator Testing
 
 The Python code was run through the PEP8 online:
 ![PEP8ERRORS](assets/images/pep8-errors.png)
 
-I initially obtained a large amount of "unexpected space around keyword/parameters equals". I had not realised that I should not put a space between the word style and the equal sign and the parameter for Rich. I removed these spaces across the program and this resolved most of the erros. 
+I initially obtained a large amount of "unexpected space around keyword/parameters equals" errors. I had not realised that I should not put a space between the word style and the equal sign and the parameter when using Rich. I removed these spaces across the program and this resolved most of the errors. 
 
 I also recieved some errors for lines being to long. So I spent time making sure that my lines were not longer than 80 characters and that follow on lines were properly indented. 
 
@@ -200,9 +220,9 @@ To the best of my knowledge there are no bugs currently in this program.
 
 ## Resolved Bugs
 
-- I had an issue when the user went through and did a new calculation when they went back to the start page and selected to exit the calculator, it wouldnt exit but instead displayed the menu from the save function. I realised I needed to enter break points so that this part of the save function would not keep running when the user exited to the home page. Once I entered them it fixed this bug.
+- I had an issue when the user went through the new calculation function and went back to the main page. When they went back to the start page and selected to exit the calculator, it wouldn't exit but instead displayed the menu from the save function. I realised I needed to enter break points so that this part of the save function would not keep running when the user exited to the home page. Once I entered them it fixed this bug.
 
-- I was encountering a bug when the user entered anything that wasnt a number. It was causing the program to crash. I implemented a try except block. This handled the exception if the user enters something that isnt a number and instead of crashing the program prints and error and directs the user back to the start of the function.
+- I was encountering a bug when the user entered anything that wasn't a number in each of the pricing functions. It was causing the program to crash. I implemented a try except block. This handled the exception if the user enters something that isnt a number and instead of crashing the program prints an error messageg and directs the user back to the start of the function.
 
 # Deployment
 
@@ -253,8 +273,8 @@ Steps to allow the program access using the credentials:
 
 Steps to ensure that the credentials file is stored securely and details are not shared with GitHub:
 
-- Open the "gitignore" file in Gitpod.
-- Add "creds.json" (without the quotes) to the gitignore file and save the file.
+- Open the gitignore file in Gitpod.
+- Add creds.json to the gitignore file and save the file.
 
 ## Heroku
 
@@ -275,7 +295,7 @@ Steps to ensure that the credentials file is stored securely and details are not
 - At the top of the settings page, and navigate to the "Deploy" tab.
 - Select Github as the deployment method.
 - Confirm that you want to connect to GitHub.
-- Search for the repository name as it is saved on GitHub, and click the "connect" button next to the correct repository.
+- Search for your repositorys name, and click the "connect" button next to the correct repository.
 - At the bottom of the deploy page, select your "Enable Automatic Deploys" if you would like updates to be deployed automatically when you push updates to Github.
 - Alternatively, click the "Deploy Branch" button to deploy updates manually. This would then need to be updated manually with any further changes.
 - Click "view" to view the deployed site.
@@ -285,7 +305,7 @@ Steps to ensure that the credentials file is stored securely and details are not
 ### Content
 
 - All text used throughout the site was written by me.
-- I have taken my pricing model from the company I work for - Quest Software. I have added some complexity to the pricing model just to create a more interesting and challenging app. But the idea of an uplift and the discounted second and third year price I have modeled on the pricing rules they I work with every day.
+- I have taken my pricing model from the company I work for - Quest Software. I have added some complexity to the pricing model just to create a more interesting and challenging app. But the idea of an uplift and the discounted second and third year price I have modeled on the pricing rules thet I work with every day.
 
 ### References
 
@@ -295,6 +315,10 @@ Steps to ensure that the credentials file is stored securely and details are not
 
 - I watched this tutorial to help with my understanding of how the use Pandas with Python - https://www.youtube.com/watch?v=vmEHCJofslg
 
+- https://realpython.com/python-exceptions/ - I referenced this site for my exception handling.
+
+- https://peps.python.org/pep-0008/ - I referenced PEP8 to confirm my styling was correct.
+
 
 ### Technologies
 - Gitpod is an online integrated development environment that was used to write my code.
@@ -302,12 +326,10 @@ Steps to ensure that the credentials file is stored securely and details are not
 - GitHub was used to store the project code after pushing it from Git.
 - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud, and was used to deploy the live project.
 - The Code Institute Python Essentials Template on GitHub was used to develop this project.
-- https://www.asciiart.eu/electronics/calculators - I got the image of a calculator from this site. I modified it slightly to show correctly in the terminal.
+- https://www.asciiart.eu/electronics/calculators - I got the image of a calculator from the ASCII Art Archive. I modified it slightly so it would show correctly in the terminal.
 - Google sheets - Used to store the user data and also the price list.
-- Pandas - I used Pandas for manipulation the data from the google sheet.
+- Pandas - I used Pandas for manipulating the data from the google sheet.
 - Colorama https://pypi.org/project/colorama/  - I used Colorama specifically for the input fields as I was getting an error when trying to use the RICH API for the input.
-- https://realpython.com/python-exceptions/ - I referenced this site for my exception handling.
-- https://peps.python.org/pep-0008/ - I referenced PEP8 to confirm my styling was correct.
 - https://github.com/Textualize/rich - I used rich to add colour to text and also for positioning of the calculator image. I also used the Rich api for generating the tables in the app.
 - Time api -I used this API to have the app pause at times so the user can read any messages being displayed.
 
